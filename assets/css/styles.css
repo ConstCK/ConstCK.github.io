@@ -363,7 +363,7 @@ h3.active::after {
     }
 
     .content {
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 0.4rem;
     }
 
     .language-skills.bar {
