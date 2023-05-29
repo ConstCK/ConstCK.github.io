@@ -346,7 +346,7 @@ h3.active::after {
 
     .side-bar {
         width: 40%;
-        font-size: 8px;
+        font-size: 6px;
         min-height: 100vh;
         line-height: 1rem;
         overflow-x: hidden;
@@ -385,6 +385,10 @@ h3.active::after {
         text-align: end;
         padding-right: 0.2rem;
     }
+    .contacts img {
+    width: 1.2rem;
+    padding-right: 0.1rem;
+    }
 }
 
 /* Galaxy Fold portrait */
@@ -399,7 +403,7 @@ h3.active::after {
         width: 40%;
         min-height: 100vh;
         line-height: 1rem;
-        font-size: 6px;
+        font-size: 4px;
         overflow-x: hidden;
         overflow-y: scroll;
     }
@@ -415,5 +419,9 @@ h3.active::after {
 
     .content {
         margin: 0.5rem 0.4rem;
+    }
+    .contacts img {
+    width: 1.2rem;
+    padding-right: 0.1rem;
     }
 }
