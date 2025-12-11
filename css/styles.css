@@ -901,6 +901,10 @@ body.theme-luxury {
     --font-secondary: 'Lora', serif;
 }
 
+body.theme-luxury .name {
+    font-size: 2.1em;
+}
+
 /* ============================================
    АДАПТИВНОСТЬ
    ============================================ */
