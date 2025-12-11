@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Капаневс Константин Константинович - Python разработчик</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="imgs/favicon.svg">
+    <link rel="alternate icon" href="imgs/favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Переключатель цветовых схем -->
+    <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="malachite" data-title-ru="Малахитово-бирюзовая"
+            data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая">1</button>
+        <button class="theme-btn" data-theme="tech" data-title-ru="Технологичный премиум" data-title-en="Tech Premium"
+            title="Технологичный премиум">2</button>
+        <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм" data-title-en="Cozy Minimalism"
+            title="Уютный минимализм">3</button>
+        <button class="theme-btn" data-theme="art" data-title-ru="Контрастная арт-палитра"
+            data-title-en="Contrast Art Palette" title="Контрастная арт-палитра">4</button>
+        <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро" data-title-en="Gold and Silver"
+            title="Золото и серебро">5</button>
+        <div class="theme-divider"></div>
+        <button class="lang-btn" id="langToggle" data-title-ru="Переключить язык" data-title-en="Switch language"
+            title="Переключить язык">EN</button>
+    </div>
+
+    <div class="container">
+        <!-- Заголовок резюме -->
+        <header class="cv-header">
+            <div class="photo-placeholder">
+                <img src="imgs/My-photo.png" alt="Константин Капаневс - Python разработчик">
+            </div>
+            <div class="header-info">
+                <h1 class="name" data-ru="Капаневс Константин Константинович" data-en="Konstantin Kapanevs">Капаневс
+                    Константин Константинович</h1>
+                <h2 class="position" data-ru="Python разработчик" data-en="Python Developer">Python разработчик</h2>
+                <div class="contact-info">
+                    <span><strong data-ru="Дата рождения:" data-en="Date of Birth:">Дата рождения:</strong>
+                        11.11.1975</span>
+                    <span><strong data-ru="Локация:" data-en="Location:">Локация:</strong> <span
+                            data-ru="Краснодарский край, г. Сочи" data-en="Krasnodar region, Sochi">Краснодарский край,
+                            г. Сочи</span></span>
+                    <span><strong data-ru="Опыт Python:" data-en="Python Experience:">Опыт Python:</strong> <span
+                            data-ru="2+ лет" data-en="2+ years">2+ лет</span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основные навыки (всегда видимы) -->
+        <section class="skills-summary">
+            <div class="skill-badge">
+                <span class="skill-label" data-ru="Основной навык" data-en="Main Skill">Основной навык</span>
+                <span class="skill-value">Python</span>
+            </div>
+            <div class="skill-badge">
+                <span class="skill-label" data-ru="Дополнительно" data-en="Additional">Дополнительно</span>
+                <span class="skill-value">JavaScript, HTML, CSS</span>
+            </div>
+            <div class="skill-badge">
+                <span class="skill-label" data-ru="Английский" data-en="English">Английский</span>
+                <span class="skill-value">B2</span>
+            </div>
+        </section>
+
+        <!-- Навыки и компетенции -->
+        <section class="cv-section">
+            <div class="section-header" data-section="skills">
+                <h3 data-ru="Навыки и компетенции" data-en="Skills and Competencies">Навыки и компетенции</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" id="skills">
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h4 data-ru="Общие навыки" data-en="General Skills">Общие навыки</h4>
+                        <ul>
+                            <li data-ru="Проектирование и создание масштабируемых API"
+                                data-en="Design and development of scalable APIs">Проектирование и создание
+                                масштабируемых API</li>
+                            <li data-ru="Создание Web приложений с нуля"
+                                data-en="Building Web applications from scratch">Создание Web приложений с нуля</li>
+                            <li data-ru="Понимание микросервисной архитектуры"
+                                data-en="Understanding microservice architecture">Понимание микросервисной архитектуры
+                            </li>
+                            <li data-ru="Составление технической документации"
+                                data-en="Technical documentation writing">Составление технической документации</li>
+                            <li data-ru="Чистый и документированный код" data-en="Clean and documented code">Чистый и
+                                документированный код</li>
+                            <li data-ru="Автоматизация рутинных задач" data-en="Automation of routine tasks">
+                                Автоматизация рутинных задач</li>
+                            <li data-ru="Создание парсеров" data-en="Web scraping and parser development">Создание
+                                парсеров</li>
+                            <li data-ru="Создание Telegram ботов" data-en="Telegram bot development">Создание Telegram
+                                ботов</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h4 data-ru="Языки программирования" data-en="Programming Languages">Языки программирования</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h4 data-ru="Фреймворки" data-en="Frameworks">Фреймворки</h4>
+                        <ul>
+                            <li>Django, DRF, FastAPI</li>
+                            <li>React, Vue</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group skill-group-large">
+                        <h4 data-ru="Технологии" data-en="Technologies">Технологии</h4>
+                        <div class="tech-tags">
+                            <span data-tooltip-ru="Язык запросов для работы с реляционными БД"
+                                data-tooltip-en="Query language for relational databases">SQL</span>
+                            <span data-tooltip-ru="Инструмент для документирования REST API"
+                                data-tooltip-en="Tool for documenting REST API">Swagger</span>
+                            <span data-tooltip-ru="In-memory хранилище для кэширования и очередей"
+                                data-tooltip-en="In-memory storage for caching and queues">Redis</span>
+                            <span data-tooltip-ru="Асинхронная обработка задач в Python"
+                                data-tooltip-en="Asynchronous task processing in Python">Celery</span>
+                            <span data-tooltip-ru="Асинхронный фреймворк для Telegram ботов"
+                                data-tooltip-en="Async framework for Telegram bots">Aiogram</span>
+                            <span data-tooltip-ru="Библиотека для анализа и обработки данных"
+                                data-tooltip-en="Library for data analysis and processing">Pandas</span>
+                            <span data-tooltip-ru="HTTP библиотека для Python"
+                                data-tooltip-en="HTTP library for Python">Requests</span>
+                            <span data-tooltip-ru="Автоматизация браузера и веб-скрапинг"
+                                data-tooltip-en="Browser automation and web scraping">Selenium</span>
+                            <span data-tooltip-ru="Фреймворк для тестирования Python кода"
+                                data-tooltip-en="Framework for testing Python code">Pytest</span>
+                            <span data-tooltip-ru="Beautiful Soup - парсинг HTML/XML"
+                                data-tooltip-en="Beautiful Soup - HTML/XML parsing">BS4</span>
+                            <span data-tooltip-ru="ORM для работы с БД в Python"
+                                data-tooltip-en="ORM for database work in Python">SQLAlchemy</span>
+                            <span data-tooltip-ru="Планировщик задач для Python"
+                                data-tooltip-en="Task scheduler for Python">APScheduler</span>
+                            <span data-tooltip-ru="Автоматическая документация API для DRF"
+                                data-tooltip-en="Automatic API documentation for DRF">DRF-Spectacular</span>
+                            <span data-tooltip-ru="API для работы с Google Sheets"
+                                data-tooltip-en="API for working with Google Sheets">Gspread</span>
+                            <span data-tooltip-ru="Работа с JSON Lines файлами"
+                                data-tooltip-en="Working with JSON Lines files">Jsonlines</span>
+                            <span data-tooltip-ru="Чтение и запись Excel файлов"
+                                data-tooltip-en="Reading and writing Excel files">Openpyxl</span>
+                            <span data-tooltip-ru="Управление состоянием для React"
+                                data-tooltip-en="State management for React">Redux</span>
+                            <span data-tooltip-ru="Графики и диаграммы для Vue.js"
+                                data-tooltip-en="Charts and graphs for Vue.js">Vue-charts</span>
+                            <span data-tooltip-ru="Компонент календаря для Vue.js"
+                                data-tooltip-en="Calendar component for Vue.js">V-calendar</span>
+                            <span data-tooltip-ru="Управление состоянием для Vue.js"
+                                data-tooltip-en="State management for Vue.js">VueX</span>
+                            <span data-tooltip-ru="API для работы с Яндекс.Диском"
+                                data-tooltip-en="API for working with Yandex.Disk">Yadisk</span>
+                            <span data-tooltip-ru="Транскрибация аудио и видео в текст"
+                                data-tooltip-en="Audio and video transcription to text">Deepgram SDK</span>
+                            <span data-tooltip-ru="Адаптивная верстка под все устройства"
+                                data-tooltip-en="Responsive layout for all devices">Adaptive layout</span>
+                            <span data-tooltip-ru="SCSS/SASS для расширенных возможностей CSS"
+                                data-tooltip-en="SCSS/SASS for advanced CSS capabilities">CSS preprocessor</span>
+                            <span data-tooltip-ru="Платформа для автоматизации рабочих процессов"
+                                data-tooltip-en="Platform for workflow automation">N8N</span>
+                        </div>
+                    </div>
+                    <div class="skill-group skill-group-large">
+                        <h4 data-ru="Базы данных и Инструменты" data-en="Databases and Tools">Базы данных и Инструменты
+                        </h4>
+                        <div class="tech-tags">
+                            <span data-tooltip-ru="Объектно-реляционная СУБД с расширенными возможностями"
+                                data-tooltip-en="Object-relational DBMS with advanced features">PostgreSQL</span>
+                            <span data-tooltip-ru="Популярная реляционная СУБД с открытым исходным кодом"
+                                data-tooltip-en="Popular open-source relational DBMS">MySQL</span>
+                            <span data-tooltip-ru="Легковесная встраиваемая СУБД"
+                                data-tooltip-en="Lightweight embedded DBMS">SQLite</span>
+                            <span data-tooltip-ru="Профессиональная IDE для Python разработки"
+                                data-tooltip-en="Professional IDE for Python development">PyCharm IDE</span>
+                            <span data-tooltip-ru="Расширяемый редактор кода от Microsoft"
+                                data-tooltip-en="Extensible code editor from Microsoft">VSCode</span>
+                            <span data-tooltip-ru="AI-powered редактор кода с Claude"
+                                data-tooltip-en="AI-powered code editor with Claude">Cursor</span>
+                            <span data-tooltip-ru="Система контроля версий"
+                                data-tooltip-en="Version control system">Git</span>
+                            <span data-tooltip-ru="Платформа для контейнеризации приложений"
+                                data-tooltip-en="Platform for application containerization">Docker</span>
+                            <span data-tooltip-ru="Инструмент для дизайна интерфейсов"
+                                data-tooltip-en="Tool for interface design">Figma</span>
+                            <span data-tooltip-ru="API платформа для тестирования и разработки"
+                                data-tooltip-en="API platform for testing and development">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Опыт работы -->
+        <section class="cv-section">
+            <div class="section-header" data-section="experience">
+                <h3 data-ru="Опыт работы" data-en="Work Experience">Опыт работы</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" id="experience">
+                <!-- ООО "Эффектив Мобайл" -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>ООО "Эффектив Мобайл"</h4>
+                        <span class="period" data-ru="декабрь 2024 – настоящее время"
+                            data-en="December 2024 – present">декабрь 2024 – настоящее время</span>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Telegram бот для отдела трудоустройства" data-en="Telegram bot for HR department">
+                            Telegram бот для отдела трудоустройства</h5>
+                        <p class="description"
+                            data-ru="Telegram бот с системой аутентификации и транскрибацией аудио/видео в текст"
+                            data-en="Telegram bot with authentication system and audio/video transcription to text">
+                            Telegram бот с системой аутентификации и транскрибацией аудио/видео в
+                            текст</p>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Backend разработчик"
+                                data-en="Backend Developer">Backend разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Создание системы аутентификации/авторизации с ролями"
+                                    data-en="Development of authentication/authorization system with roles">Создание
+                                    системы аутентификации/авторизации с ролями</li>
+                                <li data-ru="Подключение к сервису транскрибации аудио в текст"
+                                    data-en="Integration with audio-to-text transcription service">Подключение к сервису
+                                    транскрибации аудио в текст</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Анализ и выбор сервисов для транскрибации"
+                                    data-en="Analysis and selection of transcription services">Анализ и выбор сервисов
+                                    для транскрибации</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> Aiogram, SQLAlchemy, APScheduler,
+                            Asyncio, Deepgram-sdk, Gspread,
+                            Pandas, Requests, Yadisk
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Платформа для поиска вакансий" data-en="Job Search Platform">Платформа для поиска
+                            вакансий</h5>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Fullstack разработчик"
+                                data-en="Fullstack Developer">Fullstack разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Создание серверной части" data-en="Backend development">Создание серверной
+                                    части</li>
+                                <li data-ru="Создание Frontend части приложения"
+                                    data-en="Frontend application development">Создание Frontend части приложения</li>
+                                <li data-ru="Создание таблицы со статистическими данными"
+                                    data-en="Creating statistical data tables">Создание таблицы со статистическими
+                                    данными</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Приложение создано &quot;с нуля&quot; с использованием n8n"
+                                    data-en="Application built from scratch using n8n">Приложение создано "с нуля" с
+                                    использованием n8n</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> n8n, HTML, JS
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Платформа для задач/мок-собеседований"
+                            data-en="Platform for Tasks/Mock Interviews">Платформа для задач/мок-собеседований</h5>
+                        <p class="description"
+                            data-ru="Платформа для создания/прохождения задач и тестов для стажеров с получением статистики"
+                            data-en="Platform for creating/completing tasks and tests for interns with statistics">
+                            Платформа для создания/прохождения задач и тестов для стажеров с
+                            получением статистики</p>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Fullstack разработчик"
+                                data-en="Fullstack Developer">Fullstack разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Создание проекта с нуля и его поддержка"
+                                    data-en="Project development from scratch and maintenance">Создание проекта с нуля и
+                                    его поддержка</li>
+                                <li data-ru="Создание Backend и Frontend частей"
+                                    data-en="Backend and Frontend development">Создание Backend и Frontend частей</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Приложение создано &quot;с нуля&quot; на Django"
+                                    data-en="Application built from scratch using Django">Приложение создано "с нуля" на
+                                    Django</li>
+                                <li data-ru="Деплой на сервере с настройкой nginx для нескольких проектов в Docker"
+                                    data-en="Server deployment with nginx configuration for multiple Docker projects">
+                                    Деплой на сервере с настройкой nginx для нескольких проектов в Docker</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> Django, aiohttp, celery, redis,
+                            deepgram-sdk, openai, django-chartjs,
+                            pandas, gspread
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Парсеры данных" data-en="Data Scrapers">Парсеры данных</h5>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Backend разработчик"
+                                data-en="Backend Developer">Backend разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Создание парсеров для получения данных с веб страниц"
+                                    data-en="Creating scrapers for web data extraction">Создание парсеров для получения
+                                    данных с веб страниц</li>
+                                <li data-ru="Деплой проекта на сервере" data-en="Server deployment">Деплой проекта на
+                                    сервере</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Приложение создано &quot;с нуля&quot; с использованием Selenium+BS4"
+                                    data-en="Application built from scratch using Selenium+BS4">Приложение создано "с
+                                    нуля" с использованием Selenium+BS4</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> Selenium, requests, celery, redis,
+                            BS4
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ООО "Камелия" -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>ООО "Камелия"</h4>
+                        <span class="period" data-ru="ноябрь 2023 – декабрь 2024"
+                            data-en="November 2023 – December 2024">ноябрь 2023 – декабрь 2024</span>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Приложение для общепита / Telegram бот / Рекламный сайт"
+                            data-en="Catering Application / Telegram Bot / Advertising Website">Приложение для общепита
+                            / Telegram бот / Рекламный сайт</h5>
+                        <p class="description"
+                            data-ru="Калькуляционные карты предприятия, бот для планирования задач, веб сайт ресторана"
+                            data-en="Calculation cards for enterprise, task planning bot, restaurant website">
+                            Калькуляционные карты предприятия, бот для планирования задач, веб сайт
+                            ресторана</p>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Backend разработчик"
+                                data-en="Backend Developer">Backend разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Создание приложения для общепита"
+                                    data-en="Catering application development">Создание приложения для общепита</li>
+                                <li data-ru="Написание тестов (интеграционных и модульных)"
+                                    data-en="Writing tests (integration and unit)">Написание тестов (интеграционных и
+                                    модульных)</li>
+                                <li data-ru="Помощь в создании сайта" data-en="Assistance in website creation">Помощь в
+                                    создании сайта</li>
+                                <li data-ru="Создание бота с размещением в облаке"
+                                    data-en="Bot development with cloud deployment">Создание бота с размещением в облаке
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Создание, тестирование и размещение в облаке &quot;с нуля&quot;"
+                                    data-en="Development, testing and cloud deployment from scratch">Создание,
+                                    тестирование и размещение в облаке "с нуля"</li>
+                                <li data-ru="Создание бота &quot;с нуля&quot;" data-en="Bot development from scratch">
+                                    Создание бота "с нуля"</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> Django, DRF, React, Aiogram,
+                            SQLAlchemy
+                        </div>
+                        <p><strong data-ru="Команда:" data-en="Team:">Команда:</strong> <span
+                                data-ru="1 Backend + 1 Frontend разработчик"
+                                data-en="1 Backend + 1 Frontend developer">1 Backend + 1 Frontend разработчик</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Образование -->
+        <section class="cv-section">
+            <div class="section-header" data-section="education">
+                <h3 data-ru="Образование" data-en="Education">Образование</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" id="education">
+                <div class="education-item">
+                    <div class="education-header">
+                        <h4>Europa College, Nicosia, Cyprus</h4>
+                        <span class="period">1998 – 2000</span>
+                    </div>
+                    <p><span data-ru="Специальность:" data-en="Specialty:">Специальность:</span> Hotel management</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h4 data-ru="Сочинский Государственный Университет Туризма и Курортного дела"
+                            data-en="Sochi State University of Tourism and Resort Management">Сочинский Государственный
+                            Университет Туризма и Курортного дела</h4>
+                        <span class="period">1993 – 1998</span>
+                    </div>
+                    <p><span data-ru="Специальность:" data-en="Specialty:">Специальность:</span> <span
+                            data-ru="Мировая экономика" data-en="World Economy">Мировая экономика</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- О себе -->
+        <section class="cv-section">
+            <div class="section-header" data-section="about">
+                <h3 data-ru="О себе" data-en="About Me">О себе</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" id="about">
+                <p data-ru="Самостоятельно начал изучать Python с 2019 г. В 2020 добавил в свой стек JavaScript, HTML и CSS. В процессе создания веб приложений, осознал, что Backend разработка для меня интереснее и результат приносит больше удовлетворения. Сконцентрировал все свое внимание именно на Python разработке, но готов к Fullstack роли в команде, если в этом будет необходимость."
+                    data-en="Started learning Python independently in 2019. In 2020 added JavaScript, HTML and CSS to my stack. While creating web applications, I realized that Backend development is more interesting to me and brings more satisfaction. Focused all my attention on Python development, but ready for a Fullstack role in a team if necessary.">
+                    Самостоятельно начал изучать Python с 2019 г. В 2020 добавил в свой стек JavaScript, HTML и CSS. В
+                    процессе создания веб приложений, осознал, что Backend разработка для меня интереснее и результат
+                    приносит больше удовлетворения. Сконцентрировал все свое внимание именно на Python разработке, но
+                    готов к Fullstack роли в команде, если в этом будет необходимость.</p>
+
+                <p data-ru="Имеется как опыт работы в команде (SCRUM методология), так и разработка и внедрение готового приложения самостоятельно «с нуля». Имеется небольшой опыт разворачивания приложения на сервере включая настройку nginx для нескольких проектов одновременно. Есть опыт использования Docker контейнеризации для деплоя на хосте."
+                    data-en="Have experience working in a team (SCRUM methodology), as well as independent development and deployment of applications from scratch. Have some experience deploying applications on servers including nginx configuration for multiple projects simultaneously. Have experience using Docker containerization for hosting deployment.">
+                    Имеется как опыт работы в команде (SCRUM методология), так и разработка и внедрение готового
+                    приложения самостоятельно «с нуля». Имеется небольшой опыт разворачивания приложения на сервере
+                    включая настройку nginx для нескольких проектов одновременно. Есть опыт использования Docker
+                    контейнеризации для деплоя на хосте.</p>
+
+                <p data-ru="Увлекаюсь изучением современных технологий и интеграцией в текущие проекты для достижения лучших результатов. Готов к постоянному совершенствованию навыков."
+                    data-en="Passionate about learning modern technologies and integrating them into current projects to achieve better results. Ready for continuous skill improvement.">
+                    Увлекаюсь изучением современных технологий и интеграцией в текущие проекты для достижения лучших
+                    результатов. Готов к постоянному совершенствованию навыков.</p>
+            </div>
+        </section>
+
+        <!-- Технически сложные задачи -->
+        <section class="cv-section">
+            <div class="section-header" data-section="challenges">
+                <h3 data-ru="Технические вызовы и цели" data-en="Technical Challenges and Goals">Технические вызовы и
+                    цели</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" id="challenges">
+                <div class="challenge-block">
+                    <h4 data-ru="Самая технически сложная задача" data-en="Most Technically Challenging Task">Самая
+                        технически сложная задача</h4>
+                    <p data-ru="Одной из самых сложных задач, с которыми пришлось столкнуться, это использование WebSocket протокола в создании приложений. Столкнулся с этой технологией в рамках обучения, и очень хотел бы попробовать в коммерческом проекте в команде опытных разработчиков."
+                        data-en="One of the most challenging tasks I've faced is using the WebSocket protocol in application development. Encountered this technology during training and would really like to try it in a commercial project with a team of experienced developers.">
+                        Одной из самых сложных задач, с которыми пришлось столкнуться, это использование WebSocket
+                        протокола в создании приложений. Столкнулся с этой технологией в рамках обучения, и очень хотел
+                        бы попробовать в коммерческом проекте в команде опытных разработчиков.</p>
+                </div>
+
+                <div class="challenge-block">
+                    <h4 data-ru="Куда хочется развиваться" data-en="Career Development Goals">Куда хочется развиваться
+                    </h4>
+                    <p data-ru="Хочется работать в команде над сложными проектами и выйти на уровень Senior разработчика."
+                        data-en="Want to work in a team on complex projects and reach Senior Developer level.">Хочется
+                        работать в команде над сложными проектами и выйти на уровень Senior разработчика.</p>
+                </div>
+
+                <div class="challenge-block">
+                    <h4 data-ru="С какими задачами хотелось бы работать" data-en="Preferred Tasks">С какими задачами
+                        хотелось бы работать</h4>
+                    <p data-ru="Хотелось бы участвовать в проектах, связанных с Web, автоматизацией рутинных задач и обработкой больших объемов данных. Также хотел бы создавать проекты на основе микросервисной архитектуры."
+                        data-en="Would like to participate in Web projects, routine task automation and big data processing. Also interested in creating microservice architecture projects.">
+                        Хотелось бы участвовать в проектах, связанных с Web, автоматизацией рутинных задач и обработкой
+                        больших объемов данных. Также хотел бы создавать проекты на основе микросервисной архитектуры.
+                    </p>
+                </div>
+
+                <div class="challenge-block">
+                    <h4 data-ru="С какими не хотелось бы работать" data-en="Tasks to Avoid">С какими не хотелось бы
+                        работать</h4>
+                    <p data-ru="Поддержка приложений с использованием старых (неподдерживаемых) библиотек и использованием языков программирования вне моего стека."
+                        data-en="Maintenance of applications using outdated (unsupported) libraries and programming languages outside my stack.">
+                        Поддержка приложений с использованием старых (неподдерживаемых) библиотек и использованием
+                        языков
+                        программирования вне моего стека.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+# Python Project Rules
+
+## Architecture
+
+- Use layered architecture with separation of concerns: main → services → repositories → models
+- Structure:
+  - `app/main.py` - application entry point
+  - `services/` - business logic layer
+  - `repositories/` - data access layer
+  - `models/` - data models
+  - `utils/` - utilities
+  - `config.py` - project configuration
+
+## Naming Conventions
+
+- Folders: `snake_case` (e.g., `user_profile/`, `order_management/`)
+- Python files: `snake_case` (e.g., `user_service.py`, `user_repo.py`)
+- Classes: `PascalCase` (e.g., `UserService`, `UserRepository`)
+- Functions/Variables: `snake_case` (e.g., `get_user_by_id()`, `user_email`)
+- Constants: `UPPER_SNAKE_CASE` (e.g., `MAX_RETRY_COUNT`, `DEFAULT_TIMEOUT`)
+- Models: `PascalCase` (e.g., `User`, `Order`, `Product`)
+
+## Layer Dependencies
+
+- ✅ `app/main.py` uses `services/`, `utils/`
+- ✅ `services/` uses `repositories/`, `models/`, `utils/`, `config.py`
+- ✅ `repositories/` uses `models/`, `utils/`
+- ✅ `utils/` - independent utilities
+- ✅ `models/` - independent models
+- ❌ Avoid circular dependencies
+
+## Main Entry Point
+
+- Use `app/main.py` as entry point
+- Use `if __name__ == '__main__':` for execution
+- Initialize logging in main
+- Initialize services in main
+- Handle exceptions and log errors
+- Main should NOT contain business logic (service responsibility)
+
+## Services
+
+- Services in `services/[module_name]_service.py`
+- Services contain business logic and coordinate operations
+- Services use repositories for data access
+- Services use utils for helper operations
+- All service methods should be async if project is async
+- Log important operations
+
+## Repositories
+
+- Repositories in `repositories/[module_name]_repo.py`
+- Repositories contain data access logic via ORM or DB client
+- Repositories work only with models
+- All repository methods should be async if project is async
+- Use query optimization (`select_related`, `prefetch_related` if applicable)
+- Execute commit/rollback transactions
+
+## Models
+
+- Models in `models/` directory
+- One file per model or group of related models
+- Use `dataclasses` or ORM models depending on project
+- Always define `__repr__` method
+
+## Utils
+
+- Utils in `utils/[module_name]_utils.py`
+- Use classes for utilities when possible
+- Utils are independent helper functions
+
+## Constants
+
+- Constants in `config.py` or separate `constants.py` files
+- Use `UPPER_SNAKE_CASE` for constant names
+
+## Code Style
+
+### Type Annotations
+- Use Python 3.10+ syntax: `User | None` instead of `Optional[User]`
+- Use `list[User]` instead of `List[User]`
+- Use `dict[str, Any]` instead of `Dict[str, Any]`
+
+### Quotes
+- Python: Use single quotes `'` for f-strings
+- Inside f-strings: Use double quotes `"` for string literals
+
+### Exception Handling
+- Use `err` instead of `e` for exception variables
+- Use `exc_info=True` when logging exceptions
+- Don't log passwords, tokens, or sensitive data
+- Use custom exceptions in `utils/exceptions.py`
+
+### Async/Await
+- All repository and service methods should be async if project is async
+- Use `await` for all DB operations in async projects
+- Use `asyncio` for asynchronous operations
+
+## Logging
+
+- Configure logging in `utils/logging.py` using `setup_logging()` function
+- Use `logging.getLogger(__name__)` in modules
+- Log files in `logs/` directory: `main.log`, `errors.log`
+- Log levels: DEBUG (development), INFO, WARNING, ERROR, CRITICAL
+- Use `exc_info=True` when logging exceptions
+
+## Error Handling
+
+- Create custom exceptions in `utils/exceptions.py`
+- Handle exceptions in main with try/except
+- Log unexpected errors with `exc_info=True`
+- Don't expose internal details in production
+
+## Best Practices
+
+- Separation of concerns: Main → Services → Repositories → Models
+- Use query optimization to avoid N+1 queries
+- Use transactions for atomic operations
+- Test coverage should be > 80%
+- Use `pytest` and `pytest-asyncio` for async tests
+
+## SOLID Principles
+
+- Single Responsibility Principle (SRP)
+- Open/Closed Principle (OCP)
+- Liskov Substitution Principle (LSP)
+- Interface Segregation Principle (ISP)
+- Dependency Inversion Principle (DIP)
+
+## Docker
+
+- Use multi-stage builds for production Dockerfile
+- Use Docker volumes for development (hot reload)
+- Don't store secrets in Dockerfile
+- Use `.env` files or Docker secrets for sensitive data
+
+## Important Notes
+
+- Use `async`/`await` for all DB operations (if async project)
+- Always use `order_by()` for stable pagination
+- Use query optimization to avoid N+1 queries
+- Use `exc_info=True` when logging exceptions
+- Don't log passwords, tokens, or sensitive data
+- Use Docker volumes for development (hot reload)
+- Don't store secrets in Dockerfile
+
+## Documentation
+
+- DO NOT create excessive documentation and unnecessary MD files unless explicitly requested
+- Create documentation only upon explicit user request
+- Avoid creating README.md, CHANGELOG.md, CONTRIBUTING.md and other MD files without request
+- Do not add excessive docstrings and comments to code without necessity
