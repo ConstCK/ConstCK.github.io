@@ -664,16 +664,26 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
 
 .tech-stack {
     margin-top: 15px;
-    padding: 12px;
-    background: var(--bg-secondary);
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+    border-left: 4px solid var(--accent-color);
     border-radius: 8px;
-    font-size: 0.9em;
+    font-size: 0.95em;
     font-family: var(--font-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tech-stack:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(3px);
 }
 
 .tech-stack strong {
     color: var(--primary-color);
     font-family: var(--font-primary);
+    font-size: 1.05em;
+    font-weight: 700;
 }
 
 /* ============================================
