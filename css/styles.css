@@ -50,6 +50,13 @@ body {
     border-radius: 50px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 3px 12px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-switcher.hidden {
+    transform: translateY(-100px);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .theme-btn {
@@ -914,6 +921,11 @@ body.theme-luxury {
 body.theme-luxury .name {
     font-size: 2.1em;
 }
+
+/* ============================================
+   ПЛАШКА СО СТИЛЯМИ
+   ============================================ */
+
 
 /* ============================================
    АДАПТИВНОСТЬ

@@ -20,7 +20,7 @@ themeButtons.forEach(button => {
 function applyTheme(theme) {
     // Убираем все классы тем
     body.classList.remove('theme-malachite', 'theme-tech', 'theme-cozy', 'theme-art', 'theme-luxury');
-    
+
     // Добавляем нужный класс (malachite - это дефолт, но добавим для консистентности)
     if (theme === 'malachite') {
         body.classList.add('theme-malachite');
@@ -33,7 +33,7 @@ function applyTheme(theme) {
     } else if (theme === 'luxury') {
         body.classList.add('theme-luxury');
     }
-    
+
     // Обновляем активную кнопку
     themeButtons.forEach(btn => {
         btn.classList.remove('active');
@@ -56,7 +56,7 @@ const savedSectionsState = JSON.parse(localStorage.getItem('cv-sections-state'))
 sectionHeaders.forEach(header => {
     const sectionId = header.getAttribute('data-section');
     const content = document.getElementById(sectionId);
-    
+
     // Если состояние сохранено, применяем его, иначе открываем по умолчанию
     if (savedSectionsState[sectionId] !== undefined) {
         if (savedSectionsState[sectionId]) {
@@ -80,15 +80,15 @@ sectionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const sectionId = header.getAttribute('data-section');
         const content = document.getElementById(sectionId);
-        
+
         // Переключаем состояние
         header.classList.toggle('active');
         content.classList.toggle('active');
-        
+
         // Сохраняем состояние
         savedSectionsState[sectionId] = content.classList.contains('active');
         localStorage.setItem('cv-sections-state', JSON.stringify(savedSectionsState));
-        
+
         // Плавная прокрутка к секции при открытии
         if (content.classList.contains('active')) {
             setTimeout(() => {
@@ -136,7 +136,7 @@ const badgeObserver = new IntersectionObserver((entries) => {
             }, index * 100);
         }
     });
-    
+
     // Анимируем badges только один раз
     if (entries.some(entry => entry.isIntersecting)) {
         badgeAnimated = true;
@@ -170,11 +170,11 @@ document.head.appendChild(style);
 const techTags = document.querySelectorAll('.tech-tags span');
 
 techTags.forEach(tag => {
-    tag.addEventListener('mouseenter', function() {
+    tag.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-2px) scale(1.05)';
     });
-    
-    tag.addEventListener('mouseleave', function() {
+
+    tag.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -187,7 +187,7 @@ document.addEventListener('keydown', (e) => {
     // Ctrl/Cmd + P - открыть диалог печати
     if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault();
-        
+
         // Раскрываем все секции перед печатью
         sectionHeaders.forEach(header => {
             const sectionId = header.getAttribute('data-section');
@@ -195,12 +195,12 @@ document.addEventListener('keydown', (e) => {
             header.classList.add('active');
             content.classList.add('active');
         });
-        
+
         setTimeout(() => {
             window.print();
         }, 100);
     }
-    
+
     // Ctrl/Cmd + K - переключение между темами
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
@@ -211,7 +211,7 @@ document.addEventListener('keydown', (e) => {
         applyTheme(nextTheme);
         localStorage.setItem('cv-theme', nextTheme);
     }
-    
+
     // Ctrl/Cmd + O - открыть все секции
     if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
         e.preventDefault();
@@ -224,7 +224,7 @@ document.addEventListener('keydown', (e) => {
         });
         localStorage.setItem('cv-sections-state', JSON.stringify(savedSectionsState));
     }
-    
+
     // Ctrl/Cmd + Shift + C - закрыть все секции
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
         e.preventDefault();
@@ -244,7 +244,7 @@ document.addEventListener('keydown', (e) => {
 // ============================================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -326,7 +326,7 @@ if (!localStorage.getItem('cv-tips-shown')) {
             <strong>💡 Подсказка:</strong> Используйте <kbd>Ctrl+K</kbd> для смены темы, 
             <kbd>Ctrl+O</kbd> для открытия всех секций
         `;
-        
+
         const keyStyle = document.createElement('style');
         keyStyle.textContent = `
             kbd {
@@ -349,12 +349,12 @@ if (!localStorage.getItem('cv-tips-shown')) {
         `;
         document.head.appendChild(keyStyle);
         document.body.appendChild(tip);
-        
+
         setTimeout(() => {
             tip.style.animation = 'slideUpTip 0.5s ease-out reverse';
             setTimeout(() => tip.remove(), 500);
         }, 5000);
-        
+
         localStorage.setItem('cv-tips-shown', 'true');
     }, 2000);
 }
@@ -385,14 +385,14 @@ const createBackToTop = () => {
         z-index: 999;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     `;
-    
+
     button.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             button.style.opacity = '1';
@@ -402,15 +402,15 @@ const createBackToTop = () => {
             button.style.visibility = 'hidden';
         }
     });
-    
+
     button.addEventListener('mouseenter', () => {
         button.style.transform = 'translateY(-5px) scale(1.1)';
     });
-    
+
     button.addEventListener('mouseleave', () => {
         button.style.transform = 'translateY(0) scale(1)';
     });
-    
+
     document.body.appendChild(button);
 };
 
@@ -422,7 +422,7 @@ createBackToTop();
 
 function handleResponsiveThemeSwitcher() {
     const themeSwitcher = document.querySelector('.theme-switcher');
-    
+
     if (window.innerWidth <= 480) {
         // На очень маленьких экранах делаем вертикальное меню
         themeSwitcher.style.flexDirection = 'column';
@@ -510,10 +510,10 @@ langBtn.addEventListener('click', () => {
 function switchLanguage(lang) {
     // Обновляем текст кнопки
     langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
-    
+
     // Находим все элементы с data-ru и data-en
     const elements = document.querySelectorAll('[data-ru][data-en]');
-    
+
     elements.forEach(element => {
         const text = element.getAttribute(`data-${lang}`);
         if (text) {
@@ -531,7 +531,7 @@ function switchLanguage(lang) {
             }
         }
     });
-    
+
     // Обновляем title атрибуты для кнопок тем и языка
     const buttonsWithTitle = document.querySelectorAll('[data-title-ru][data-title-en]');
     buttonsWithTitle.forEach(button => {
@@ -540,7 +540,49 @@ function switchLanguage(lang) {
             button.setAttribute('title', titleText);
         }
     });
-    
+
     // Обновляем атрибут lang в html (для CSS селекторов tooltip)
     document.documentElement.lang = lang;
 }
+
+// ============================================
+// УПРАВЛЕНИЕ ПАНЕЛЬЮ ТЕМ ПРИ ПРОКРУТКЕ
+// ============================================
+
+const themeSwitcher = document.querySelector('.theme-switcher');
+let lastScrollTop = 0;
+let scrollTimeout;
+
+// Функция для управления видимостью панели
+function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Показываем панель при прокрутке вверх
+    if (scrollTop < lastScrollTop) {
+        themeSwitcher.classList.remove('hidden');
+    }
+    // Скрываем панель при прокрутке вниз
+    else if (scrollTop > 100) { // Скрываем только после 100px прокрутки
+        themeSwitcher.classList.add('hidden');
+    }
+
+    lastScrollTop = scrollTop;
+}
+
+// Добавляем обработчик прокрутки с throttling
+window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+
+    scrollTimeout = setTimeout(() => {
+        handleScroll();
+    }, 10); // Throttle до 10ms
+});
+
+// Показываем панель при наведении мыши на область где она должна быть
+document.addEventListener('mousemove', (e) => {
+    if (e.clientX > window.innerWidth - 100 && e.clientY < 100) {
+        themeSwitcher.classList.remove('hidden');
+    }
+});
