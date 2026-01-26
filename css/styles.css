@@ -1802,11 +1802,11 @@ body.theme-luxury .name {
     }
 
     .name {
-        font-size: 1.4em;
+        font-size: 1.25em;
     }
 
     .position {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }
 
     .photo-placeholder {
@@ -1815,12 +1815,49 @@ body.theme-luxury .name {
     }
 
     .section-header h3 {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     .experience-header h4,
     .education-header h4 {
-        font-size: 1.1em;
+        font-size: 1em;
+    }
+
+    .skill-group h4 {
+        font-size: 0.95em;
+    }
+
+    .section-content,
+    .project,
+    .experience-item,
+    .education-item {
+        font-size: 0.95em;
+    }
+}
+
+/* Экстра маленькие устройства (до 360px) */
+@media (max-width: 360px) {
+    .name {
+        font-size: 1.15em;
+    }
+
+    .position {
+        font-size: 0.85em;
+    }
+
+    .section-header h3 {
+        font-size: 0.95em;
+    }
+
+    .skill-group h4 {
+        font-size: 0.9em;
+    }
+
+    .section-content,
+    .project,
+    .experience-item,
+    .education-item {
+        font-size: 0.9em;
     }
 }
 
