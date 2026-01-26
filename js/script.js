@@ -417,25 +417,6 @@ const createBackToTop = () => {
 createBackToTop();
 
 // ============================================
-// АДАПТИВНОЕ МЕНЮ ТЕМ ДЛЯ МОБИЛЬНЫХ
-// ============================================
-
-function handleResponsiveThemeSwitcher() {
-    const themeSwitcher = document.querySelector('.theme-switcher');
-
-    if (window.innerWidth <= 480) {
-        // На очень маленьких экранах делаем вертикальное меню
-        themeSwitcher.style.flexDirection = 'column';
-    } else {
-        themeSwitcher.style.flexDirection = 'row';
-    }
-}
-
-// Проверяем при загрузке и изменении размера
-handleResponsiveThemeSwitcher();
-window.addEventListener('resize', handleResponsiveThemeSwitcher);
-
-// ============================================
 // КОНСОЛЬНОЕ СООБЩЕНИЕ
 // ============================================
 
@@ -544,45 +525,3 @@ function switchLanguage(lang) {
     // Обновляем атрибут lang в html (для CSS селекторов tooltip)
     document.documentElement.lang = lang;
 }
-
-// ============================================
-// УПРАВЛЕНИЕ ПАНЕЛЬЮ ТЕМ ПРИ ПРОКРУТКЕ
-// ============================================
-
-const themeSwitcher = document.querySelector('.theme-switcher');
-let lastScrollTop = 0;
-let scrollTimeout;
-
-// Функция для управления видимостью панели
-function handleScroll() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Показываем панель при прокрутке вверх
-    if (scrollTop < lastScrollTop) {
-        themeSwitcher.classList.remove('hidden');
-    }
-    // Скрываем панель при прокрутке вниз
-    else if (scrollTop > 100) { // Скрываем только после 100px прокрутки
-        themeSwitcher.classList.add('hidden');
-    }
-
-    lastScrollTop = scrollTop;
-}
-
-// Добавляем обработчик прокрутки с throttling
-window.addEventListener('scroll', () => {
-    if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-    }
-
-    scrollTimeout = setTimeout(() => {
-        handleScroll();
-    }, 10); // Throttle до 10ms
-});
-
-// Показываем панель при наведении мыши на область где она должна быть
-document.addEventListener('mousemove', (e) => {
-    if (e.clientX > window.innerWidth - 100 && e.clientY < 100) {
-        themeSwitcher.classList.remove('hidden');
-    }
-});
