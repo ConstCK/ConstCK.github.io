@@ -17,29 +17,40 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Meta -->
+    <meta name="description" content="Резюме Python разработчика - Капаневс Константин">
+    <meta name="author" content="Капаневс Константин Константинович">
 </head>
 
 <body>
     <div class="container">
+        <!-- Переключатель цветовых схем -->
+        <nav class="theme-switcher" role="navigation" aria-label="Theme and language selection">
+            <button class="theme-btn active" data-theme="malachite" data-title-ru="Малахитово-бирюзовая"
+                data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая" 
+                aria-label="Малахитово-бирюзовая тема" aria-pressed="true" type="button">1</button>
+            <button class="theme-btn" data-theme="tech" data-title-ru="Технологичный премиум" data-title-en="Tech Premium"
+                title="Технологичный премиум" aria-label="Технологичный премиум" 
+                aria-pressed="false" type="button">2</button>
+            <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм" data-title-en="Cozy Minimalism"
+                title="Уютный минимализм" aria-label="Уютный минимализм" 
+                aria-pressed="false" type="button">3</button>
+            <button class="theme-btn" data-theme="art" data-title-ru="Контрастная арт-палитра"
+                data-title-en="Contrast Art Palette" title="Контрастная арт-палитра" 
+                aria-label="Контрастная арт-палитра" aria-pressed="false" type="button">4</button>
+            <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро" data-title-en="Gold and Silver"
+                title="Золото и серебро" aria-label="Золото и серебро" 
+                aria-pressed="false" type="button">5</button>
+            <div class="theme-divider" aria-hidden="true"></div>
+            <button class="lang-btn" id="langToggle" data-title-ru="Переключить язык" data-title-en="Switch language"
+                title="Переключить язык" aria-label="Переключить язык" type="button">EN</button>
+        </nav>
+
         <!-- Заголовок резюме -->
-        <header class="cv-header">
-            <!-- Переключатель цветовых схем -->
-            <div class="theme-switcher">
-                <button class="theme-btn active" data-theme="malachite" data-title-ru="Малахитово-бирюзовая"
-                    data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая">1</button>
-                <button class="theme-btn" data-theme="tech" data-title-ru="Технологичный премиум" data-title-en="Tech Premium"
-                    title="Технологичный премиум">2</button>
-                <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм" data-title-en="Cozy Minimalism"
-                    title="Уютный минимализм">3</button>
-                <button class="theme-btn" data-theme="art" data-title-ru="Контрастная арт-палитра"
-                    data-title-en="Contrast Art Palette" title="Контрастная арт-палитра">4</button>
-                <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро" data-title-en="Gold and Silver"
-                    title="Золото и серебро">5</button>
-                <div class="theme-divider"></div>
-                <button class="lang-btn" id="langToggle" data-title-ru="Переключить язык" data-title-en="Switch language"
-                    title="Переключить язык">EN</button>
-            </div>
+        <header class="cv-header" role="banner">
             <div class="photo-placeholder">
                 <img src="imgs/My-photo-1.jpg" alt="Константин Капаневс - Python разработчик">
             </div>
@@ -74,12 +85,13 @@
         </section>
 
         <!-- Навыки и компетенции -->
-        <section class="cv-section">
-            <div class="section-header" data-section="skills">
-                <h3 data-ru="Навыки и компетенции" data-en="Skills and Competencies">Навыки и компетенции</h3>
-                <span class="toggle-icon">▼</span>
+        <section class="cv-section" aria-labelledby="skills-heading">
+            <div class="section-header" data-section="skills" role="button" 
+                 aria-expanded="false" aria-controls="skills" tabindex="0">
+                <h3 id="skills-heading" data-ru="Навыки и компетенции" data-en="Skills and Competencies">Навыки и компетенции</h3>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
-            <div class="section-content" id="skills">
+            <div class="section-content" id="skills" role="region" aria-hidden="true">
                 <div class="skills-grid">
                     <div class="skill-group">
                         <h4 data-ru="Общие навыки" data-en="General Skills">Общие навыки</h4>
@@ -212,12 +224,13 @@
         </section>
 
         <!-- Опыт работы -->
-        <section class="cv-section">
-            <div class="section-header" data-section="experience">
-                <h3 data-ru="Опыт работы" data-en="Work Experience">Опыт работы</h3>
-                <span class="toggle-icon">▼</span>
+        <section class="cv-section" aria-labelledby="experience-heading">
+            <div class="section-header" data-section="experience" role="button" 
+                 aria-expanded="false" aria-controls="experience" tabindex="0">
+                <h3 id="experience-heading" data-ru="Опыт работы" data-en="Work Experience">Опыт работы</h3>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
-            <div class="section-content" id="experience">
+            <div class="section-content" id="experience" role="region" aria-hidden="true">
                 <!-- ООО "Эффектив Мобайл" -->
                 <div class="experience-item">
                     <div class="experience-header">
@@ -447,12 +460,13 @@
         </section>
 
         <!-- Образование -->
-        <section class="cv-section">
-            <div class="section-header" data-section="education">
-                <h3 data-ru="Образование" data-en="Education">Образование</h3>
-                <span class="toggle-icon">▼</span>
+        <section class="cv-section" aria-labelledby="education-heading">
+            <div class="section-header" data-section="education" role="button" 
+                 aria-expanded="false" aria-controls="education" tabindex="0">
+                <h3 id="education-heading" data-ru="Образование" data-en="Education">Образование</h3>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
-            <div class="section-content" id="education">
+            <div class="section-content" id="education" role="region" aria-hidden="true">
                 <div class="education-item">
                     <div class="education-header">
                         <h4>SkillFactory</h4>
@@ -481,12 +495,13 @@
         </section>
 
         <!-- О себе -->
-        <section class="cv-section">
-            <div class="section-header" data-section="about">
-                <h3 data-ru="О себе" data-en="About Me">О себе</h3>
-                <span class="toggle-icon">▼</span>
+        <section class="cv-section" aria-labelledby="about-heading">
+            <div class="section-header" data-section="about" role="button" 
+                 aria-expanded="false" aria-controls="about" tabindex="0">
+                <h3 id="about-heading" data-ru="О себе" data-en="About Me">О себе</h3>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
-            <div class="section-content" id="about">
+            <div class="section-content" id="about" role="region" aria-hidden="true">
                 <p data-ru="Самостоятельно начал изучать Python с 2019 г. В 2020 добавил в свой стек JavaScript, HTML и CSS. В процессе создания веб приложений, осознал, что Backend разработка для меня интереснее и результат приносит больше удовлетворения. Сконцентрировал все свое внимание именно на Python разработке, но готов к Fullstack роли в команде, если в этом будет необходимость."
                     data-en="Started learning Python independently in 2019. In 2020 added JavaScript, HTML and CSS to my stack. While creating web applications, I realized that Backend development is more interesting to me and brings more satisfaction. Focused all my attention on Python development, but ready for a Fullstack role in a team if necessary.">
                     Самостоятельно начал изучать Python с 2019 г. В 2020 добавил в свой стек JavaScript, HTML и CSS. В
@@ -509,13 +524,14 @@
         </section>
 
         <!-- Технически сложные задачи -->
-        <section class="cv-section">
-            <div class="section-header" data-section="challenges">
-                <h3 data-ru="Технические вызовы и цели" data-en="Technical Challenges and Goals">Технические вызовы и
+        <section class="cv-section" aria-labelledby="challenges-heading">
+            <div class="section-header" data-section="challenges" role="button" 
+                 aria-expanded="false" aria-controls="challenges" tabindex="0">
+                <h3 id="challenges-heading" data-ru="Технические вызовы и цели" data-en="Technical Challenges and Goals">Технические вызовы и
                     цели</h3>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
-            <div class="section-content" id="challenges">
+            <div class="section-content" id="challenges" role="region" aria-hidden="true">
                 <div class="challenge-block">
                     <h4 data-ru="Самая технически сложная задача" data-en="Most Technically Challenging Task">Самая
                         технически сложная задача</h4>
@@ -557,8 +573,10 @@
                 </div>
             </div>
         </section>
+    </div>
 
-        <script src="js/script.js"></script>
+    <!-- Подключаем новый модульный JavaScript -->
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

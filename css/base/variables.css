@@ -1,0 +1,40 @@
+/* ============================================
+   CSS ПЕРЕМЕННЫЕ
+   ============================================ */
+
+:root {
+    /* Цвета по умолчанию - Чистый профессионализм */
+    --primary-color: #1F4E79;
+    --secondary-color: #2E75B6;
+    --accent-color: #2E75B6;
+    --bg-color: #FFFFFF;
+    --bg-secondary: #F2F2F2;
+    --text-color: #0A0A0A;
+    --text-secondary: #444444;
+    --border-color: #CCCCCC;
+    
+    /* Тени */
+    --shadow: 0 10px 30px rgba(31, 78, 121, 0.1);
+    --shadow-hover: 0 15px 40px rgba(31, 78, 121, 0.15);
+    
+    /* Шрифты */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Source Sans Pro', sans-serif;
+    
+    /* Переходы */
+    --transition-default: all 0.3s ease;
+    
+    /* Радиусы */
+    --radius-small: 10px;
+    --radius-medium: 15px;
+    --radius-large: 20px;
+    --radius-round: 50%;
+    
+    /* Z-индексы */
+    --z-indicator: 9999;
+    --z-modal: 1000;
+    --z-overlay: 999;
+    --z-fixed: 100;
+    --z-above: 10;
+    --z-default: 1;
+}

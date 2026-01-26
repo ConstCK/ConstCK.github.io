@@ -1,0 +1,91 @@
+/* ============================================
+   ЦВЕТОВЫЕ СХЕМЫ
+   ============================================ */
+
+/* Малахитово-бирюзовая (по умолчанию) */
+body.theme-malachite {
+    --primary-color: #0F544A;
+    --secondary-color: #1BAA8A;
+    --accent-color: #7FD8BE;
+    --bg-color: #FDFBF7;
+    --bg-secondary: #E8F4F1;
+    --text-color: #0F544A;
+    --text-secondary: #1BAA8A;
+    --border-color: #7FD8BE;
+    --shadow: 0 10px 30px rgba(15, 84, 74, 0.12);
+    --shadow-hover: 0 15px 40px rgba(15, 84, 74, 0.18);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Work Sans', sans-serif;
+}
+
+/* Технологичный премиум */
+body.theme-tech {
+    --primary-color: #3C91E6;
+    --secondary-color: #1B263B;
+    --accent-color: #3C91E6;
+    --bg-color: #E0E5EB;
+    --bg-secondary: #FFFFFF;
+    --text-color: #0C1B33;
+    --text-secondary: #415A77;
+    --border-color: #415A77;
+    --shadow: 0 10px 30px rgba(12, 27, 51, 0.12);
+    --shadow-hover: 0 15px 40px rgba(12, 27, 51, 0.18);
+    --font-primary: 'IBM Plex Sans', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+/* Уютный минимализм */
+body.theme-cozy {
+    --primary-color: #6A6A6A;
+    --secondary-color: #1D1D1D;
+    --accent-color: #E6CBA8;
+    --bg-color: #F3EFE9;
+    --bg-secondary: #FFFFFF;
+    --text-color: #1D1D1D;
+    --text-secondary: #6A6A6A;
+    --border-color: #E6CBA8;
+    --shadow: 0 10px 30px rgba(29, 29, 29, 0.08);
+    --shadow-hover: 0 15px 40px rgba(29, 29, 29, 0.12);
+    --font-primary: 'Lato', sans-serif;
+    --font-secondary: 'Nunito', sans-serif;
+}
+
+/* Контрастная арт-палитра */
+body.theme-art {
+    --primary-color: #C72C41;
+    --secondary-color: #801336;
+    --accent-color: #EE4540;
+    --bg-color: #E3E3E3;
+    --bg-secondary: #ffffff;
+    --text-color: #2D132C;
+    --text-secondary: #801336;
+    --border-color: #C72C41;
+    --shadow: 0 10px 30px rgba(45, 19, 44, 0.15);
+    --shadow-hover: 0 15px 40px rgba(45, 19, 44, 0.2);
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Source Sans Pro', sans-serif;
+}
+
+body.theme-art .name {
+    font-size: 2.1em;
+}
+
+/* Золото и серебро (премиум роскошь) */
+body.theme-luxury {
+    --primary-color: #B8860B;
+    --secondary-color: #D4AF37;
+    --accent-color: #FFD700;
+    --bg-color: #F5F5F5;
+    --bg-secondary: #FFFFFF;
+    --text-color: #2C2C2C;
+    --text-secondary: #5A5A5A;
+    --border-color: #C0C0C0;
+    --shadow: 0 10px 30px rgba(184, 134, 11, 0.15);
+    --shadow-hover: 0 15px 40px rgba(184, 134, 11, 0.25);
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Lora', serif;
+}
+
+body.theme-luxury .name {
+    font-size: 2.1em;
+}

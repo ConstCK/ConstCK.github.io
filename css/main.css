@@ -1,0 +1,27 @@
+/* ============================================
+   ГЛАВНЫЙ ФАЙЛ СТИЛЕЙ - CV APPLICATION
+   ============================================ */
+
+/* Базовые стили */
+@import url('base/variables.css');
+@import url('base/base.css');
+
+/* Анимации */
+@import url('animations.css');
+
+/* Темы */
+@import url('themes.css');
+
+/* Импортируем старый styles.css для компонентов
+   (временно, пока не разделим все компоненты) */
+@import url('styles.css');
+
+/* Примечание: В будущем заменить на модульную структуру:
+@import url('components/theme-switcher.css');
+@import url('components/cv-header.css');
+@import url('components/skills.css');
+@import url('components/sections.css');
+@import url('components/experience.css');
+@import url('components/education.css');
+@import url('responsive.css');
+*/

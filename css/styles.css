@@ -157,12 +157,10 @@ body {
     position: relative;
 }
 
-.cv-header .theme-switcher {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    margin: 0;
-    z-index: 10;
+.theme-switcher {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 @keyframes slideDown {
@@ -937,9 +935,8 @@ body.theme-luxury .name {
         padding: 0 15px;
     }
 
-    .cv-header .theme-switcher {
-        top: 12px;
-        right: 12px;
+    .theme-switcher {
+        margin-bottom: 15px;
     }
 
     .cv-header {
@@ -972,16 +969,12 @@ body.theme-luxury .name {
         padding: 0 10px;
     }
 
-    .cv-header .theme-switcher {
-        position: static;
-        display: flex;
-        flex-direction: row;
+    .theme-switcher {
         flex-wrap: wrap;
         justify-content: flex-end;
         padding: 5px;
         gap: 5px;
         margin-bottom: 15px;
-        width: 100%;
     }
 
     .theme-btn {
@@ -1086,8 +1079,7 @@ body.theme-luxury .name {
         margin-top: 15px;
     }
 
-    .cv-header .theme-switcher {
-        flex-direction: row;
+    .theme-switcher {
         justify-content: center;
         padding: 4px;
         gap: 4px;
