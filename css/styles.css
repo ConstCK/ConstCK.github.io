@@ -31,6 +31,34 @@ body {
     line-height: 1.6;
     transition: all 0.3s ease;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Parallax фон с декоративными элементами */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, var(--primary-color) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, var(--accent-color) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px;
+    opacity: 0.04;
+    z-index: -1;
+    animation: parallaxMove 60s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes parallaxMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(50px, 50px) rotate(360deg);
+    }
 }
 
 /* ============================================
@@ -48,6 +76,9 @@ body {
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, opacity 0.3s ease;
     width: fit-content;
+    overflow: visible;
+    position: relative;
+    z-index: 200;
 }
 
 .theme-btn {
@@ -66,6 +97,7 @@ body {
     justify-content: center;
     border: 2px solid transparent;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: relative;
 }
 
 .theme-btn:hover {
@@ -100,6 +132,7 @@ body {
     border: 2px solid var(--border-color);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     font-family: var(--font-primary);
+    position: relative;
 }
 
 .lang-btn:hover {
@@ -108,6 +141,212 @@ body {
     color: white;
     border-color: var(--primary-color);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   TOOLTIP ДЛЯ КНОПОК СТИЛЕЙ И ЯЗЫКА
+   ============================================ */
+
+/* Tooltip для кнопок тем - РУССКИЙ */
+html[lang="ru"] .theme-btn[data-title-ru]::after {
+    content: attr(data-title-ru);
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Tooltip для кнопок тем - АНГЛИЙСКИЙ */
+html[lang="en"] .theme-btn[data-title-en]::after {
+    content: attr(data-title-en);
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Стрелка tooltip для кнопок тем - РУССКИЙ */
+html[lang="ru"] .theme-btn[data-title-ru]::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(3px) scale(0.9);
+    border: 8px solid transparent;
+    border-bottom-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Стрелка tooltip для кнопок тем - АНГЛИЙСКИЙ */
+html[lang="en"] .theme-btn[data-title-en]::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(3px) scale(0.9);
+    border: 8px solid transparent;
+    border-bottom-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Показываем tooltip при наведении на кнопки тем */
+html[lang="ru"] .theme-btn[data-title-ru]:hover::after,
+html[lang="en"] .theme-btn[data-title-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+html[lang="ru"] .theme-btn[data-title-ru]:hover::before,
+html[lang="en"] .theme-btn[data-title-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+/* Tooltip для кнопки языка - РУССКИЙ */
+html[lang="ru"] .lang-btn[data-title-ru]::after {
+    content: attr(data-title-ru);
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Tooltip для кнопки языка - АНГЛИЙСКИЙ */
+html[lang="en"] .lang-btn[data-title-en]::after {
+    content: attr(data-title-en);
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Стрелка tooltip для кнопки языка - РУССКИЙ */
+html[lang="ru"] .lang-btn[data-title-ru]::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(3px) scale(0.9);
+    border: 8px solid transparent;
+    border-bottom-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Стрелка tooltip для кнопки языка - АНГЛИЙСКИЙ */
+html[lang="en"] .lang-btn[data-title-en]::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(3px) scale(0.9);
+    border: 8px solid transparent;
+    border-bottom-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Показываем tooltip при наведении на кнопку языка */
+html[lang="ru"] .lang-btn[data-title-ru]:hover::after,
+html[lang="en"] .lang-btn[data-title-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+html[lang="ru"] .lang-btn[data-title-ru]:hover::before,
+html[lang="en"] .lang-btn[data-title-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
 .theme-btn.active {
@@ -151,10 +390,11 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25), 0 5px 20px rgba(0, 0, 0, 0.15);
     animation: slideDown 0.6s ease-out;
     position: relative;
+    z-index: 1;
 }
 
 .theme-switcher {
@@ -240,6 +480,21 @@ body {
     gap: 5px;
 }
 
+.telegram-link {
+    color: white;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.telegram-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(3px);
+}
+
 /* ============================================
    ОСНОВНЫЕ НАВЫКИ (BADGES)
    ============================================ */
@@ -257,16 +512,42 @@ body {
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 2px solid var(--border-color);
     position: relative;
+    overflow: hidden;
+}
+
+.skill-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
 }
 
 .skill-badge:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.18);
     border-color: var(--primary-color);
     cursor: pointer;
+    animation: skillPulse 1.5s ease-in-out infinite;
+}
+
+.skill-badge:hover::before {
+    left: 100%;
+}
+
+@keyframes skillPulse {
+    0%, 100% {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+    50% {
+        box-shadow: 0 20px 50px var(--primary-color), 0 8px 20px var(--accent-color);
+    }
 }
 
 .skill-label {
@@ -301,12 +582,38 @@ body {
     margin-bottom: 20px;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+/* Добавляем большой отступ для первой секции после header */
+.cv-section:first-of-type {
+    margin-top: 40px;
+}
+
+/* Декоративная линия слева */
+.cv-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 20px;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .cv-section:hover {
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) translateZ(20px);
+}
+
+.cv-section:hover::before {
+    opacity: 1;
 }
 
 .section-header {
@@ -320,6 +627,7 @@ body {
     transition: all 0.3s ease;
     border-left: 5px solid transparent;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .section-header:hover {
@@ -330,11 +638,27 @@ body {
 .section-header h3 {
     font-size: 1.5em;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% auto;
     font-family: var(--font-primary);
+    transition: background-position 0.5s ease;
+}
+
+.section-header:hover h3 {
+    background-position: right center;
+    animation: gradientShift 2s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: left center;
+    }
+    50% {
+        background-position: right center;
+    }
 }
 
 .toggle-icon {
@@ -350,13 +674,52 @@ body {
 .section-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 30px;
+    position: relative;
+    background: var(--bg-secondary);
+}
+
+/* Эффект волны при открытии */
+.section-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    transition: left 0.6s ease;
+    pointer-events: none;
 }
 
 .section-content.active {
     max-height: 5000px;
     padding: 20px 30px 30px;
+    animation: waveReveal 0.6s ease-out;
+    overflow: visible;
+}
+
+.section-content.active::before {
+    left: 100%;
+}
+
+@keyframes waveReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================================
@@ -365,25 +728,313 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
+}
+
+.skill-group {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--bg-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: visible;
+    position: relative;
+}
+
+.skill-group:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .skill-group-large {
     grid-column: 1 / -1;
+    overflow: visible;
 }
 
 .skill-group h4 {
     color: var(--primary-color);
-    font-size: 1.1em;
-    margin-bottom: 12px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
     font-weight: 700;
     font-family: var(--font-primary);
+    padding: 12px 18px;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-color));
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skill-group h4:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    border-left-width: 6px;
+    overflow: visible;
+}
+
+/* Выделение технологий через mark */
+mark.tech-highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Mark внутри li с tooltip не должны блокировать hover */
+.skill-group li[data-tooltip-ru] mark.tech-highlight:not([data-tooltip-ru]),
+.skill-group li[data-tooltip-en] mark.tech-highlight:not([data-tooltip-en]) {
+    pointer-events: none;
+}
+
+mark.tech-highlight:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 4px 12px var(--primary-color);
+}
+
+/* Tooltip для mark элементов (языки и фреймворки) - РУССКИЙ */
+html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::after {
+    content: attr(data-tooltip-ru);
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 350px;
+    white-space: normal;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Tooltip для mark элементов - АНГЛИЙСКИЙ */
+html[lang="en"] mark.tech-highlight[data-tooltip-en]::after {
+    content: attr(data-tooltip-en);
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 350px;
+    white-space: normal;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Стрелка для mark tooltip - РУССКИЙ */
+html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
+    border-top-color: var(--secondary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Стрелка для mark tooltip - АНГЛИЙСКИЙ */
+html[lang="en"] mark.tech-highlight[data-tooltip-en]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
+    border-top-color: var(--secondary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+html[lang="ru"] mark.tech-highlight[data-tooltip-ru]:hover::after,
+html[lang="en"] mark.tech-highlight[data-tooltip-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+html[lang="ru"] mark.tech-highlight[data-tooltip-ru]:hover::before,
+html[lang="en"] mark.tech-highlight[data-tooltip-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+/* Tooltip для элементов списка (общие навыки) - РУССКИЙ */
+html[lang="ru"] .skill-group li[data-tooltip-ru]::after {
+    content: attr(data-tooltip-ru);
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 350px;
+    white-space: normal;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Tooltip для элементов списка - АНГЛИЙСКИЙ */
+html[lang="en"] .skill-group li[data-tooltip-en]::after {
+    content: attr(data-tooltip-en);
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 350px;
+    white-space: normal;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Стрелка для li tooltip - РУССКИЙ */
+html[lang="ru"] .skill-group li[data-tooltip-ru]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
+    border-top-color: var(--secondary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Стрелка для li tooltip - АНГЛИЙСКИЙ */
+html[lang="en"] .skill-group li[data-tooltip-en]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
+    border-top-color: var(--secondary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+html[lang="ru"] .skill-group li[data-tooltip-ru]:hover::after,
+html[lang="en"] .skill-group li[data-tooltip-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+html[lang="ru"] .skill-group li[data-tooltip-ru]:hover::before,
+html[lang="en"] .skill-group li[data-tooltip-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+.skill-group li[data-tooltip-ru]:hover::after,
+.skill-group li[data-tooltip-en]:hover::after,
+.skill-group li[data-tooltip-ru]:hover::before,
+.skill-group li[data-tooltip-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
 .skill-group ul {
     list-style: none;
     padding-left: 0;
+    overflow: visible;
+    position: relative;
 }
 
 .skill-group li {
@@ -392,6 +1043,13 @@ body {
     position: relative;
     color: var(--text-secondary);
     font-family: var(--font-secondary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-group li:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
 }
 
 .skill-group li::before {
@@ -407,6 +1065,8 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    overflow: visible;
+    padding: 20px 0;
 }
 
 .tech-tags span {
@@ -416,7 +1076,7 @@ body {
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-family: var(--font-primary);
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -430,104 +1090,119 @@ body {
 }
 
 .tech-tags span:hover {
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px) scale(1.12) rotate(2deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 6px 15px var(--primary-color);
     cursor: pointer;
+    filter: brightness(1.1);
 }
 
-/* Tooltip стили для русского языка */
+/* Tooltip стили для технологий, БД и инструментов - РУССКИЙ */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]::after {
     content: attr(data-tooltip-ru);
     position: absolute;
-    bottom: 120%;
+    bottom: calc(100% + 20px);
     left: 50%;
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 0.85em;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
-    z-index: 1000;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
     font-weight: 500;
-    line-height: 1.4;
-    max-width: 300px;
+    line-height: 1.5;
+    max-width: 350px;
     white-space: normal;
     text-align: center;
-}
-
-/* Tooltip стили для английского языка */
-html[lang="en"] .tech-tags span[data-tooltip-en]::after {
-    content: attr(data-tooltip-en);
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 0.85em;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 1000;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    font-weight: 500;
-    line-height: 1.4;
-    max-width: 300px;
-    white-space: normal;
-    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 /* Стрелка tooltip для русского */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]::before {
     content: '';
     position: absolute;
-    bottom: 100%;
+    bottom: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%);
-    border: 8px solid transparent;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
     border-top-color: var(--secondary-color);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Tooltip стили для технологий, БД и инструментов - АНГЛИЙСКИЙ */
+html[lang="en"] .tech-tags span[data-tooltip-en]::after {
+    content: attr(data-tooltip-en);
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px) scale(0.9);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 350px;
+    white-space: normal;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 /* Стрелка tooltip для английского */
 html[lang="en"] .tech-tags span[data-tooltip-en]::before {
     content: '';
     position: absolute;
-    bottom: 100%;
+    bottom: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%);
-    border: 8px solid transparent;
+    transform: translateX(-50%) translateY(-5px) scale(0.9);
+    border: 10px solid transparent;
     border-top-color: var(--secondary-color);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99999;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
+/* Показываем tooltip при наведении */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]:hover::after,
 html[lang="en"] .tech-tags span[data-tooltip-en]:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
 html[lang="ru"] .tech-tags span[data-tooltip-ru]:hover::before,
 html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
 /* ============================================
@@ -615,6 +1290,23 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     font-style: italic;
     margin-bottom: 12px;
     font-family: var(--font-secondary);
+    line-height: 1.8;
+}
+
+/* Буквица (Drop cap) для первой буквы описания */
+.project .description::first-letter {
+    initial-letter: 2;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    float: left;
+    line-height: 1;
+    margin-right: 8px;
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .project p {
@@ -1071,6 +1763,24 @@ body.theme-luxury .name {
         padding: 6px 12px;
         min-width: 90px;
     }
+    
+    /* Упрощаем анимации на мобильных */
+    .skill-badge:hover {
+        animation: none;
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    .tech-tags span:hover {
+        transform: translateY(-3px) scale(1.05) rotate(0deg);
+    }
+    
+    /* Убираем буквицу на маленьких экранах */
+    .project .description::first-letter {
+        initial-letter: unset;
+        font-size: inherit;
+        float: none;
+        margin-right: 0;
+    }
 }
 
 /* Очень маленькие мобильные (до 480px) */
@@ -1218,7 +1928,48 @@ body.theme-luxury .name {
 
 /* Focus для клавиатурной навигации */
 button:focus-visible,
-.section-header:focus-visible {
+.section-header:focus-visible,
+a:focus-visible {
     outline: 3px solid var(--primary-color);
     outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(var(--primary-color), 0.1);
+}
+
+/* ============================================
+   ПЕЧАТЬ
+   ============================================ */
+
+@media print {
+    body::before {
+        display: none;
+    }
+    
+    .theme-switcher,
+    .back-to-top,
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    .cv-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .section-content {
+        max-height: none !important;
+        padding: 20px !important;
+    }
+    
+    .skill-badge,
+    .tech-tags span {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
 }

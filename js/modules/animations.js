@@ -107,19 +107,20 @@ export class Animations {
     }
 
     /**
-     * Эффект параллакса для заголовка
+     * Эффект параллакса для заголовка и фона
      */
     initParallaxEffect() {
         const cvHeader = document.querySelector('.cv-header');
+        const bodyBefore = document.body;
         
         if (!cvHeader) return;
 
         const updateParallax = () => {
             const scrolled = window.scrollY;
-            if (scrolled < CONFIG.SCROLL_THRESHOLD) {
-                cvHeader.style.transform = `translateY(${scrolled * 0.3}px)`;
-                cvHeader.style.opacity = 1 - (scrolled / 500);
-            }
+            
+            // Параллакс только для фонового элемента (без смещения header)
+            const parallaxSpeed = scrolled * 0.15;
+            bodyBefore.style.setProperty('--parallax-y', `${parallaxSpeed}px`);
         };
 
         window.addEventListener('scroll', throttle(updateParallax, CONFIG.SCROLL_THROTTLE_DELAY));

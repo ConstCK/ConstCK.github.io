@@ -285,20 +285,6 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// ЭФФЕКТ PARALLAX ДЛЯ HEADER
-// ============================================
-
-const cvHeader = document.querySelector('.cv-header');
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if (cvHeader && scrolled < 300) {
-        cvHeader.style.transform = `translateY(${scrolled * 0.3}px)`;
-        cvHeader.style.opacity = 1 - (scrolled / 500);
-    }
-});
-
-// ============================================
 // ПОДСКАЗКИ ГОРЯЧИХ КЛАВИШ
 // ============================================
 
