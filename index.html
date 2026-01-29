@@ -19,7 +19,7 @@
 
     <!-- Стили -->
     <link rel="stylesheet" href="css/main.css">
-    
+
     <!-- Meta -->
     <meta name="description" content="Резюме Python разработчика - Капаневс Константин">
     <meta name="author" content="Капаневс Константин Константинович">
@@ -30,23 +30,25 @@
         <!-- Переключатель цветовых схем -->
         <nav class="theme-switcher" role="navigation" aria-label="Theme and language selection">
             <button class="theme-btn active" data-theme="malachite" data-title-ru="Малахитово-бирюзовая"
-                data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая" 
-                aria-label="Малахитово-бирюзовая тема" aria-pressed="true" type="button">1</button>
-            <button class="theme-btn" data-theme="tech" data-title-ru="Технологичный премиум" data-title-en="Tech Premium"
-                title="Технологичный премиум" aria-label="Технологичный премиум" 
+                data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая" aria-label="Малахитово-бирюзовая тема"
+                aria-pressed="true" type="button">1</button>
+            <button class="theme-btn" data-theme="tech" data-title-ru="Технологичный премиум"
+                data-title-en="Tech Premium" title="Технологичный премиум" aria-label="Технологичный премиум"
                 aria-pressed="false" type="button">2</button>
-            <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм" data-title-en="Cozy Minimalism"
-                title="Уютный минимализм" aria-label="Уютный минимализм" 
+            <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм"
+                data-title-en="Cozy Minimalism" title="Уютный минимализм" aria-label="Уютный минимализм"
                 aria-pressed="false" type="button">3</button>
             <button class="theme-btn" data-theme="art" data-title-ru="Контрастная арт-палитра"
-                data-title-en="Contrast Art Palette" title="Контрастная арт-палитра" 
+                data-title-en="Contrast Art Palette" title="Контрастная арт-палитра"
                 aria-label="Контрастная арт-палитра" aria-pressed="false" type="button">4</button>
-            <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро" data-title-en="Gold and Silver"
-                title="Золото и серебро" aria-label="Золото и серебро" 
+            <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро"
+                data-title-en="Gold and Silver" title="Золото и серебро" aria-label="Золото и серебро"
                 aria-pressed="false" type="button">5</button>
             <div class="theme-divider" aria-hidden="true"></div>
             <button class="lang-btn" id="langToggle" data-title-ru="Переключить язык" data-title-en="Switch language"
                 title="Переключить язык" aria-label="Переключить язык" type="button">EN</button>
+            <button class="pdf-btn" id="pdfDownload" data-title-ru="Скачать PDF" data-title-en="Download PDF"
+                title="Скачать PDF" aria-label="Скачать PDF" type="button">📄</button>
         </nav>
 
         <!-- Заголовок резюме -->
@@ -64,7 +66,8 @@
                             г. Сочи</span></span>
                     <span><strong data-ru="Опыт Python:" data-en="Python Experience:">Опыт Python:</strong> <span
                             data-ru="2+ лет" data-en="2+ years">2+ лет</span></span>
-                    <span><strong>Telegram:</strong> <a href="https://t.me/Constantin_CK" target="_blank" rel="noopener" class="telegram-link">@Constantin_CK</a></span>
+                    <span><strong>Telegram:</strong> <a href="https://t.me/Constantin_CK" target="_blank" rel="noopener"
+                            class="telegram-link">@Constantin_CK</a></span>
                 </div>
             </div>
         </header>
@@ -87,9 +90,10 @@
 
         <!-- Навыки и компетенции -->
         <section class="cv-section" aria-labelledby="skills-heading">
-            <div class="section-header" data-section="skills" role="button" 
-                 aria-expanded="false" aria-controls="skills" tabindex="0">
-                <h3 id="skills-heading" data-ru="Навыки и компетенции" data-en="Skills and Competencies">Навыки и компетенции</h3>
+            <div class="section-header" data-section="skills" role="button" aria-expanded="false" aria-controls="skills"
+                tabindex="0">
+                <h3 id="skills-heading" data-ru="Навыки и компетенции" data-en="Skills and Competencies">Навыки и
+                    компетенции</h3>
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
             <div class="section-content" id="skills" role="region" aria-hidden="true">
@@ -97,28 +101,55 @@
                     <div class="skill-group">
                         <h4 data-ru="Общие навыки" data-en="General Skills">Общие навыки</h4>
                         <ul>
-                            <li data-tooltip-ru="Разработка RESTful API с использованием DRF и FastAPI" data-tooltip-en="RESTful API development using DRF and FastAPI">Проектирование и создание масштабируемых <mark class="tech-highlight">API</mark></li>
-                            <li data-tooltip-ru="Fullstack разработка на Python, Django, React, Vue" data-tooltip-en="Fullstack development with Python, Django, React, Vue">Создание <mark class="tech-highlight">Web приложений</mark> с нуля</li>
-                            <li data-tooltip-ru="Проектирование распределённых систем и сервисов" data-tooltip-en="Designing distributed systems and services">Понимание <mark class="tech-highlight">микросервисной архитектуры</mark></li>
-                            <li data-tooltip-ru="Документирование API, код-ревью, архитектурные решения" data-tooltip-en="API documentation, code review, architectural decisions">Составление <mark class="tech-highlight">технической документации</mark></li>
-                            <li data-tooltip-ru="Следование PEP8, type hints, docstrings, комментарии" data-tooltip-en="Following PEP8, type hints, docstrings, comments">Чистый и <mark class="tech-highlight">документированный код</mark></li>
-                            <li data-tooltip-ru="Скрипты для автоматизации деплоя, тестирования, сборки" data-tooltip-en="Scripts for automating deployment, testing, build"><mark class="tech-highlight">Автоматизация</mark> рутинных задач</li>
-                            <li data-tooltip-ru="Selenium, BeautifulSoup, Scrapy для сбора данных" data-tooltip-en="Selenium, BeautifulSoup, Scrapy for data collection"><mark class="tech-highlight">Парсер</mark> для получения вакансий с сайтов "Бигтехов"</li>
-                            <li data-tooltip-ru="Aiogram, python-telegram-bot для создания ботов" data-tooltip-en="Aiogram, python-telegram-bot for bot development">Создание <mark class="tech-highlight">Telegram ботов</mark></li>
+                            <li data-tooltip-ru="Разработка RESTful API с использованием DRF и FastAPI"
+                                data-tooltip-en="RESTful API development using DRF and FastAPI">Проектирование и
+                                создание масштабируемых <mark class="tech-highlight">API</mark></li>
+                            <li data-tooltip-ru="Fullstack разработка на Python, Django, React, Vue"
+                                data-tooltip-en="Fullstack development with Python, Django, React, Vue">Создание <mark
+                                    class="tech-highlight">Web приложений</mark> с нуля</li>
+                            <li data-tooltip-ru="Проектирование распределённых систем и сервисов"
+                                data-tooltip-en="Designing distributed systems and services">Понимание <mark
+                                    class="tech-highlight">микросервисной архитектуры</mark></li>
+                            <li data-tooltip-ru="Документирование API, код-ревью, архитектурные решения"
+                                data-tooltip-en="API documentation, code review, architectural decisions">Составление
+                                <mark class="tech-highlight">технической документации</mark></li>
+                            <li data-tooltip-ru="Следование PEP8, type hints, docstrings, комментарии"
+                                data-tooltip-en="Following PEP8, type hints, docstrings, comments">Чистый и <mark
+                                    class="tech-highlight">документированный код</mark></li>
+                            <li data-tooltip-ru="Скрипты для автоматизации деплоя, тестирования, сборки"
+                                data-tooltip-en="Scripts for automating deployment, testing, build"><mark
+                                    class="tech-highlight">Автоматизация</mark> рутинных задач</li>
+                            <li data-tooltip-ru="Selenium, BeautifulSoup, Scrapy для сбора данных"
+                                data-tooltip-en="Selenium, BeautifulSoup, Scrapy for data collection"><mark
+                                    class="tech-highlight">Парсер</mark> для получения вакансий с сайтов "Бигтехов"</li>
+                            <li data-tooltip-ru="Aiogram, python-telegram-bot для создания ботов"
+                                data-tooltip-en="Aiogram, python-telegram-bot for bot development">Создание <mark
+                                    class="tech-highlight">Telegram ботов</mark></li>
                         </ul>
                     </div>
                     <div class="skill-group">
                         <h4 data-ru="Языки программирования" data-en="Programming Languages">Языки программирования</h4>
                         <ul>
-                            <li><mark class="tech-highlight" data-tooltip-ru="Backend разработка, 2+ года опыта" data-tooltip-en="Backend development, 2+ years experience">Python</mark></li>
-                            <li><mark class="tech-highlight" data-tooltip-ru="Frontend разработка, React, Vue, Node.js" data-tooltip-en="Frontend development, React, Vue, Node.js">JavaScript</mark></li>
+                            <li><mark class="tech-highlight" data-tooltip-ru="Backend разработка, 2+ года опыта"
+                                    data-tooltip-en="Backend development, 2+ years experience">Python</mark></li>
+                            <li><mark class="tech-highlight" data-tooltip-ru="Frontend разработка, React, Vue, Node.js"
+                                    data-tooltip-en="Frontend development, React, Vue, Node.js">JavaScript</mark></li>
                         </ul>
                     </div>
                     <div class="skill-group">
                         <h4 data-ru="Фреймворки" data-en="Frameworks">Фреймворки</h4>
                         <ul>
-                            <li><mark class="tech-highlight" data-tooltip-ru="Fullstack веб-фреймворк" data-tooltip-en="Fullstack web framework">Django</mark>, <mark class="tech-highlight" data-tooltip-ru="REST API для Django" data-tooltip-en="REST API for Django">DRF</mark>, <mark class="tech-highlight" data-tooltip-ru="Современный асинхронный фреймворк" data-tooltip-en="Modern async framework">FastAPI</mark></li>
-                            <li><mark class="tech-highlight" data-tooltip-ru="Библиотека для создания пользовательских интерфейсов" data-tooltip-en="Library for building user interfaces">React</mark>, <mark class="tech-highlight" data-tooltip-ru="Прогрессивный фреймворк для веб-приложений" data-tooltip-en="Progressive framework for web applications">Vue</mark></li>
+                            <li><mark class="tech-highlight" data-tooltip-ru="Fullstack веб-фреймворк"
+                                    data-tooltip-en="Fullstack web framework">Django</mark>, <mark
+                                    class="tech-highlight" data-tooltip-ru="REST API для Django"
+                                    data-tooltip-en="REST API for Django">DRF</mark>, <mark class="tech-highlight"
+                                    data-tooltip-ru="Современный асинхронный фреймворк"
+                                    data-tooltip-en="Modern async framework">FastAPI</mark></li>
+                            <li><mark class="tech-highlight"
+                                    data-tooltip-ru="Библиотека для создания пользовательских интерфейсов"
+                                    data-tooltip-en="Library for building user interfaces">React</mark>, <mark
+                                    class="tech-highlight" data-tooltip-ru="Прогрессивный фреймворк для веб-приложений"
+                                    data-tooltip-en="Progressive framework for web applications">Vue</mark></li>
                         </ul>
                     </div>
                     <div class="skill-group skill-group-large">
@@ -216,8 +247,8 @@
 
         <!-- Опыт работы -->
         <section class="cv-section" aria-labelledby="experience-heading">
-            <div class="section-header" data-section="experience" role="button" 
-                 aria-expanded="false" aria-controls="experience" tabindex="0">
+            <div class="section-header" data-section="experience" role="button" aria-expanded="false"
+                aria-controls="experience" tabindex="0">
                 <h3 id="experience-heading" data-ru="Опыт работы" data-en="Work Experience">Опыт работы</h3>
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
@@ -374,8 +405,7 @@
 
                     <div class="project">
                         <h5 data-ru="Парсеры данных" data-en="Data Scrapers">Парсеры данных</h5>
-                        <p class="description"
-                            data-ru="Парсер для получения вакансий с сайтов &quot;Бигтехов&quot;"
+                        <p class="description" data-ru="Парсер для получения вакансий с сайтов &quot;Бигтехов&quot;"
                             data-en="Parser for scraping vacancies from &quot;Big Tech&quot; websites">
                             Парсер для получения вакансий с сайтов "Бигтехов"</p>
                         <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Backend разработчик"
@@ -384,7 +414,8 @@
                             <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
                             <ul>
                                 <li data-ru="Парсер для получения вакансий с сайтов &quot;Бигтехов&quot;"
-                                    data-en="Parser for scraping vacancies from &quot;Big Tech&quot; websites">Парсер для получения вакансий с сайтов "Бигтехов"</li>
+                                    data-en="Parser for scraping vacancies from &quot;Big Tech&quot; websites">Парсер
+                                    для получения вакансий с сайтов "Бигтехов"</li>
                                 <li data-ru="Деплой проекта на сервере" data-en="Server deployment">Деплой проекта на
                                     сервере</li>
                             </ul>
@@ -459,8 +490,8 @@
 
         <!-- Образование -->
         <section class="cv-section" aria-labelledby="education-heading">
-            <div class="section-header" data-section="education" role="button" 
-                 aria-expanded="false" aria-controls="education" tabindex="0">
+            <div class="section-header" data-section="education" role="button" aria-expanded="false"
+                aria-controls="education" tabindex="0">
                 <h3 id="education-heading" data-ru="Образование" data-en="Education">Образование</h3>
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
@@ -494,8 +525,8 @@
 
         <!-- О себе -->
         <section class="cv-section" aria-labelledby="about-heading">
-            <div class="section-header" data-section="about" role="button" 
-                 aria-expanded="false" aria-controls="about" tabindex="0">
+            <div class="section-header" data-section="about" role="button" aria-expanded="false" aria-controls="about"
+                tabindex="0">
                 <h3 id="about-heading" data-ru="О себе" data-en="About Me">О себе</h3>
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
@@ -523,9 +554,10 @@
 
         <!-- Технически сложные задачи -->
         <section class="cv-section" aria-labelledby="challenges-heading">
-            <div class="section-header" data-section="challenges" role="button" 
-                 aria-expanded="false" aria-controls="challenges" tabindex="0">
-                <h3 id="challenges-heading" data-ru="Технические вызовы и цели" data-en="Technical Challenges and Goals">Технические вызовы и
+            <div class="section-header" data-section="challenges" role="button" aria-expanded="false"
+                aria-controls="challenges" tabindex="0">
+                <h3 id="challenges-heading" data-ru="Технические вызовы и цели"
+                    data-en="Technical Challenges and Goals">Технические вызовы и
                     цели</h3>
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>

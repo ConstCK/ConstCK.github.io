@@ -511,3 +511,26 @@ function switchLanguage(lang) {
     // Обновляем атрибут lang в html (для CSS селекторов tooltip)
     document.documentElement.lang = lang;
 }
+
+// ============================================
+// КНОПКА СКАЧИВАНИЯ PDF
+// ============================================
+
+const pdfBtn = document.getElementById('pdfDownload');
+
+if (pdfBtn) {
+    pdfBtn.addEventListener('click', () => {
+        // Раскрываем все секции перед печатью
+        sectionHeaders.forEach(header => {
+            const sectionId = header.getAttribute('data-section');
+            const content = document.getElementById(sectionId);
+            header.classList.add('active');
+            content.classList.add('active');
+        });
+
+        // Даём время на применение стилей, затем открываем диалог печати
+        setTimeout(() => {
+            window.print();
+        }, 100);
+    });
+}

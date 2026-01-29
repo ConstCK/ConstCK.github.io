@@ -11,7 +11,7 @@ import { throttle, createElement } from './utils.js';
 export class UIComponents {
     constructor() {
         this.backToTopButton = null;
-        
+
         this.init();
     }
 
@@ -20,6 +20,7 @@ export class UIComponents {
      */
     init() {
         this.createBackToTopButton();
+        this.initPdfDownloadButton();
         this.logWelcomeMessage();
     }
 
@@ -28,7 +29,7 @@ export class UIComponents {
      */
     createBackToTopButton() {
         const config = CONFIG.BACK_TO_TOP_BUTTON;
-        
+
         this.backToTopButton = createElement('button', {
             classes: 'back-to-top',
             attributes: {
@@ -68,7 +69,7 @@ export class UIComponents {
      */
     updateBackToTopButton() {
         const config = CONFIG.BACK_TO_TOP_BUTTON;
-        
+
         if (window.scrollY > config.SHOW_THRESHOLD) {
             this.backToTopButton.style.opacity = '1';
             this.backToTopButton.style.visibility = 'visible';
@@ -79,12 +80,52 @@ export class UIComponents {
     }
 
     /**
+     * Инициализация кнопки скачивания PDF
+     */
+    initPdfDownloadButton() {
+        const pdfBtn = document.getElementById('pdfDownload');
+
+        if (!pdfBtn) {
+            console.warn('PDF download button not found');
+            return;
+        }
+
+        pdfBtn.addEventListener('click', () => {
+            this.handlePdfDownload();
+        });
+    }
+
+    /**
+     * Обработка скачивания PDF
+     */
+    handlePdfDownload() {
+        // Получаем все заголовки секций
+        const sectionHeaders = document.querySelectorAll('.section-header');
+
+        // Раскрываем все секции перед печатью
+        sectionHeaders.forEach(header => {
+            const sectionId = header.getAttribute('data-section');
+            const content = document.getElementById(sectionId);
+
+            if (content) {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        });
+
+        // Даём время на применение стилей, затем открываем диалог печати
+        setTimeout(() => {
+            window.print();
+        }, 100);
+    }
+
+    /**
      * Вывести приветственное сообщение в консоль
      */
     logWelcomeMessage() {
         console.log('%c👋 Привет! ', 'font-size: 20px; font-weight: bold; color: #1F4E79;');
         console.log('%cЭто резюме Константина Капаневса', 'font-size: 14px; color: #444444;');
-        
+
         // Логируем доступные темы
         console.log('%c\n5 цветовых схем доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
         console.log('%c  🌊 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
