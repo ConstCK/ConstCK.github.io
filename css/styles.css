@@ -622,6 +622,21 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     transform: translateX(3px);
 }
 
+.github-link {
+    color: white;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(3px);
+}
+
 /* ============================================
    ОСНОВНЫЕ НАВЫКИ (BADGES)
    ============================================ */
