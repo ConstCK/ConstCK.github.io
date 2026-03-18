@@ -13,7 +13,7 @@ themeButtons.forEach(button => {
 });
 
 function applyTheme(theme) {
-    body.classList.remove('theme-malachite', 'theme-cozy', 'theme-art', 'theme-luxury');
+    body.classList.remove('theme-malachite', 'theme-cozy', 'theme-art', 'theme-luxury', 'theme-burgundy');
 
     if (theme === 'malachite') {
         body.classList.add('theme-malachite');
@@ -23,6 +23,8 @@ function applyTheme(theme) {
         body.classList.add('theme-art');
     } else if (theme === 'luxury') {
         body.classList.add('theme-luxury');
+    } else if (theme === 'burgundy') {
+        body.classList.add('theme-burgundy');
     }
 
     themeButtons.forEach(btn => {
@@ -159,7 +161,7 @@ document.addEventListener('keydown', (e) => {
 
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        const themes = ['malachite', 'cozy', 'art', 'luxury'];
+        const themes = ['malachite', 'cozy', 'art', 'luxury', 'burgundy'];
         const currentTheme = localStorage.getItem('cv-theme') || 'malachite';
         const currentIndex = themes.indexOf(currentTheme);
         const nextTheme = themes[(currentIndex + 1) % themes.length];
@@ -345,11 +347,12 @@ console.log('%c  Ctrl+K - Смена темы', 'font-size: 11px; color: #444444
 console.log('%c  Ctrl+O - Открыть все секции', 'font-size: 11px; color: #444444;');
 console.log('%c  Ctrl+Shift+C - Закрыть все секции', 'font-size: 11px; color: #444444;');
 console.log('%c  Ctrl+P - Печать', 'font-size: 11px; color: #444444;');
-console.log('%c\n4 цветовых схемы доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
+console.log('%c\n5 цветовых схем доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
 console.log('%c  💎 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
 console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
-console.log('%c  ❤️ Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
+console.log('%c  ☀️ Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
 console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
+console.log('%c  🩸 Брутальный бордовый', 'font-size: 10px; color: #444444;');
 
 if (!localStorage.getItem('cv-theme')) {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
