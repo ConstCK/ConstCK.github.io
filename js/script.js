@@ -348,7 +348,7 @@ console.log('%c  Ctrl+P - Печать', 'font-size: 11px; color: #444444;');
 console.log('%c\n4 цветовых схемы доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
 console.log('%c  💎 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
 console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
-console.log('%c  🍷 Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
+console.log('%c  ❤️ Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
 console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
 
 if (!localStorage.getItem('cv-theme')) {

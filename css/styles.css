@@ -1575,13 +1575,13 @@ body.theme-art {
     --primary-color: #C72C41;
     --secondary-color: #801336;
     --accent-color: #EE4540;
-    --bg-color: #E3E3E3;
-    --bg-secondary: #ffffff;
+    --bg-color: #f5e6e8;
+    --bg-secondary: #fce8eb;
     --text-color: #2D132C;
     --text-secondary: #801336;
     --border-color: #C72C41;
-    --shadow: 0 10px 30px rgba(45, 19, 44, 0.15);
-    --shadow-hover: 0 15px 40px rgba(45, 19, 44, 0.2);
+    --shadow: 0 10px 30px rgba(199, 44, 65, 0.18);
+    --shadow-hover: 0 15px 40px rgba(199, 44, 65, 0.25);
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Source Sans Pro', sans-serif;
 }
@@ -1606,16 +1606,16 @@ body.theme-professional {
 }
 
 body.theme-cozy {
-    --primary-color: #6A6A6A;
-    --secondary-color: #1D1D1D;
-    --accent-color: #E6CBA8;
-    --bg-color: #F3EFE9;
-    --bg-secondary: #FFFFFF;
-    --text-color: #1D1D1D;
-    --text-secondary: #6A6A6A;
-    --border-color: #E6CBA8;
-    --shadow: 0 10px 30px rgba(29, 29, 29, 0.08);
-    --shadow-hover: 0 15px 40px rgba(29, 29, 29, 0.12);
+    --primary-color: #7eb8f7;
+    --secondary-color: #2d5a7b;
+    --accent-color: #7ab8d4;
+    --bg-color: #1a1d24;
+    --bg-secondary: #252a33;
+    --text-color: #e4e8ec;
+    --text-secondary: #9ca3af;
+    --border-color: #3d4551;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.45);
     --font-primary: 'Lato', sans-serif;
     --font-secondary: 'Nunito', sans-serif;
 }
@@ -1639,13 +1639,13 @@ body.theme-luxury {
     --primary-color: #B8860B;
     --secondary-color: #D4AF37;
     --accent-color: #FFD700;
-    --bg-color: #F5F5F5;
-    --bg-secondary: #FFFFFF;
+    --bg-color: #f7f2e8;
+    --bg-secondary: #fdf9f0;
     --text-color: #2C2C2C;
     --text-secondary: #5A5A5A;
-    --border-color: #C0C0C0;
-    --shadow: 0 10px 30px rgba(184, 134, 11, 0.15);
-    --shadow-hover: 0 15px 40px rgba(184, 134, 11, 0.25);
+    --border-color: #D4AF37;
+    --shadow: 0 10px 30px rgba(184, 134, 11, 0.2);
+    --shadow-hover: 0 15px 40px rgba(184, 134, 11, 0.3);
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Work Sans', sans-serif;
 }
