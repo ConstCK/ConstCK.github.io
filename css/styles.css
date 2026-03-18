@@ -1,9 +1,4 @@
-/* ============================================
-   БАЗОВЫЕ СТИЛИ И ПЕРЕМЕННЫЕ
-   ============================================ */
-
 :root {
-    /* Чистый профессионализм (по умолчанию) */
     --primary-color: #1F4E79;
     --secondary-color: #2E75B6;
     --accent-color: #2E75B6;
@@ -34,7 +29,6 @@ body {
     position: relative;
 }
 
-/* Parallax фон с декоративными элементами */
 body::before {
     content: '';
     position: fixed;
@@ -61,10 +55,6 @@ body::before {
         transform: translate(50px, 50px) rotate(360deg);
     }
 }
-
-/* ============================================
-   ПЕРЕКЛЮЧАТЕЛЬ ТЕМ
-   ============================================ */
 
 .theme-switcher {
     display: flex;
@@ -173,11 +163,6 @@ body::before {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* ============================================
-   TOOLTIP ДЛЯ КНОПОК СТИЛЕЙ И ЯЗЫКА
-   ============================================ */
-
-/* Tooltip для кнопок тем - РУССКИЙ */
 html[lang="ru"] .theme-btn[data-title-ru]::after {
     content: attr(data-title-ru);
     position: absolute;
@@ -204,7 +189,6 @@ html[lang="ru"] .theme-btn[data-title-ru]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Tooltip для кнопок тем - АНГЛИЙСКИЙ */
 html[lang="en"] .theme-btn[data-title-en]::after {
     content: attr(data-title-en);
     position: absolute;
@@ -231,7 +215,6 @@ html[lang="en"] .theme-btn[data-title-en]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка tooltip для кнопок тем - РУССКИЙ */
 html[lang="ru"] .theme-btn[data-title-ru]::before {
     content: '';
     position: absolute;
@@ -247,7 +230,6 @@ html[lang="ru"] .theme-btn[data-title-ru]::before {
     filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
 }
 
-/* Стрелка tooltip для кнопок тем - АНГЛИЙСКИЙ */
 html[lang="en"] .theme-btn[data-title-en]::before {
     content: '';
     position: absolute;
@@ -263,7 +245,6 @@ html[lang="en"] .theme-btn[data-title-en]::before {
     filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
 }
 
-/* Показываем tooltip при наведении на кнопки тем */
 html[lang="ru"] .theme-btn[data-title-ru]:hover::after,
 html[lang="en"] .theme-btn[data-title-en]:hover::after {
     opacity: 1 !important;
@@ -278,7 +259,6 @@ html[lang="en"] .theme-btn[data-title-en]:hover::before {
     transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
-/* Tooltip для кнопки языка - РУССКИЙ */
 html[lang="ru"] .lang-btn[data-title-ru]::after {
     content: attr(data-title-ru);
     position: absolute;
@@ -305,7 +285,6 @@ html[lang="ru"] .lang-btn[data-title-ru]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Tooltip для кнопки языка - АНГЛИЙСКИЙ */
 html[lang="en"] .lang-btn[data-title-en]::after {
     content: attr(data-title-en);
     position: absolute;
@@ -332,7 +311,6 @@ html[lang="en"] .lang-btn[data-title-en]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка tooltip для кнопки языка - РУССКИЙ */
 html[lang="ru"] .lang-btn[data-title-ru]::before {
     content: '';
     position: absolute;
@@ -348,7 +326,6 @@ html[lang="ru"] .lang-btn[data-title-ru]::before {
     filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
 }
 
-/* Стрелка tooltip для кнопки языка - АНГЛИЙСКИЙ */
 html[lang="en"] .lang-btn[data-title-en]::before {
     content: '';
     position: absolute;
@@ -364,7 +341,6 @@ html[lang="en"] .lang-btn[data-title-en]::before {
     filter: drop-shadow(0 -2px 6px rgba(0, 0, 0, 0.3));
 }
 
-/* Показываем tooltip при наведении на кнопку языка */
 html[lang="ru"] .lang-btn[data-title-ru]:hover::after,
 html[lang="en"] .lang-btn[data-title-en]:hover::after {
     opacity: 1 !important;
@@ -379,7 +355,6 @@ html[lang="en"] .lang-btn[data-title-en]:hover::before {
     transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
-/* Tooltip для кнопки PDF - РУССКИЙ */
 html[lang="ru"] .pdf-btn[data-title-ru]::after {
     content: attr(data-title-ru);
     position: absolute;
@@ -404,7 +379,6 @@ html[lang="ru"] .pdf-btn[data-title-ru]::after {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Tooltip для кнопки PDF - АНГЛИЙСКИЙ */
 html[lang="en"] .pdf-btn[data-title-en]::after {
     content: attr(data-title-en);
     position: absolute;
@@ -429,7 +403,6 @@ html[lang="en"] .pdf-btn[data-title-en]::after {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Стрелка tooltip для кнопки PDF - РУССКИЙ */
 html[lang="ru"] .pdf-btn[data-title-ru]::before {
     content: '';
     position: absolute;
@@ -445,7 +418,6 @@ html[lang="ru"] .pdf-btn[data-title-ru]::before {
     filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Стрелка tooltip для кнопки PDF - АНГЛИЙСКИЙ */
 html[lang="en"] .pdf-btn[data-title-en]::before {
     content: '';
     position: absolute;
@@ -461,7 +433,6 @@ html[lang="en"] .pdf-btn[data-title-en]::before {
     filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Показываем tooltip при наведении на кнопку PDF */
 html[lang="ru"] .pdf-btn[data-title-ru]:hover::after,
 html[lang="en"] .pdf-btn[data-title-en]:hover::after {
     opacity: 1 !important;
@@ -482,10 +453,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================================
-   КОНТЕЙНЕР
-   ============================================ */
-
 .container {
     max-width: 1320px;
     margin: 40px auto 40px;
@@ -504,10 +471,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
         transform: translateY(0);
     }
 }
-
-/* ============================================
-   ЗАГОЛОВОК РЕЗЮМЕ
-   ============================================ */
 
 .cv-header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -637,10 +600,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     transform: translateX(3px);
 }
 
-/* ============================================
-   ОСНОВНЫЕ НАВЫКИ (BADGES)
-   ============================================ */
-
 .skills-summary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -717,10 +676,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     font-family: var(--font-secondary);
 }
 
-/* ============================================
-   СЕКЦИИ
-   ============================================ */
-
 .cv-section {
     background: var(--bg-secondary);
     border-radius: 15px;
@@ -733,12 +688,10 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     z-index: 1;
 }
 
-/* Добавляем большой отступ для первой секции после header */
 .cv-section:first-of-type {
     margin-top: 40px;
 }
 
-/* Декоративная линия слева */
 .cv-section::before {
     content: '';
     position: absolute;
@@ -829,7 +782,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     background: var(--bg-secondary);
 }
 
-/* Эффект волны при открытии */
 .section-content::before {
     content: '';
     position: absolute;
@@ -871,10 +823,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
         transform: translateY(0);
     }
 }
-
-/* ============================================
-   НАВЫКИ И КОМПЕТЕНЦИИ
-   ============================================ */
 
 .skills-grid {
     display: grid;
@@ -928,7 +876,6 @@ html[lang="en"] .pdf-btn[data-title-en]:hover::before {
     overflow: visible;
 }
 
-/* Выделение технологий через mark */
 mark.tech-highlight {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
@@ -944,7 +891,6 @@ mark.tech-highlight {
     position: relative;
 }
 
-/* Mark внутри li с tooltip не должны блокировать hover */
 .skill-group li[data-tooltip-ru] mark.tech-highlight:not([data-tooltip-ru]),
 .skill-group li[data-tooltip-en] mark.tech-highlight:not([data-tooltip-en]) {
     pointer-events: none;
@@ -955,7 +901,6 @@ mark.tech-highlight:hover {
     box-shadow: 0 4px 12px var(--primary-color);
 }
 
-/* Tooltip для mark элементов (языки и фреймворки) - РУССКИЙ */
 html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::after {
     content: attr(data-tooltip-ru);
     position: absolute;
@@ -986,7 +931,6 @@ html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Tooltip для mark элементов - АНГЛИЙСКИЙ */
 html[lang="en"] mark.tech-highlight[data-tooltip-en]::after {
     content: attr(data-tooltip-en);
     position: absolute;
@@ -1017,7 +961,6 @@ html[lang="en"] mark.tech-highlight[data-tooltip-en]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка для mark tooltip - РУССКИЙ */
 html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::before {
     content: '';
     position: absolute;
@@ -1033,7 +976,6 @@ html[lang="ru"] mark.tech-highlight[data-tooltip-ru]::before {
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Стрелка для mark tooltip - АНГЛИЙСКИЙ */
 html[lang="en"] mark.tech-highlight[data-tooltip-en]::before {
     content: '';
     position: absolute;
@@ -1063,7 +1005,6 @@ html[lang="en"] mark.tech-highlight[data-tooltip-en]:hover::before {
     transform: translateX(-50%) translateY(0) scale(1) !important;
 }
 
-/* Tooltip для элементов списка (общие навыки) - РУССКИЙ */
 html[lang="ru"] .skill-group li[data-tooltip-ru]::after {
     content: attr(data-tooltip-ru);
     position: absolute;
@@ -1094,7 +1035,6 @@ html[lang="ru"] .skill-group li[data-tooltip-ru]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Tooltip для элементов списка - АНГЛИЙСКИЙ */
 html[lang="en"] .skill-group li[data-tooltip-en]::after {
     content: attr(data-tooltip-en);
     position: absolute;
@@ -1125,7 +1065,6 @@ html[lang="en"] .skill-group li[data-tooltip-en]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка для li tooltip - РУССКИЙ */
 html[lang="ru"] .skill-group li[data-tooltip-ru]::before {
     content: '';
     position: absolute;
@@ -1141,7 +1080,6 @@ html[lang="ru"] .skill-group li[data-tooltip-ru]::before {
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Стрелка для li tooltip - АНГЛИЙСКИЙ */
 html[lang="en"] .skill-group li[data-tooltip-en]::before {
     content: '';
     position: absolute;
@@ -1246,7 +1184,6 @@ html[lang="en"] .skill-group li[data-tooltip-en]:hover::before {
     filter: brightness(1.1);
 }
 
-/* Tooltip стили для технологий, БД и инструментов - РУССКИЙ */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]::after {
     content: attr(data-tooltip-ru);
     position: absolute;
@@ -1277,7 +1214,6 @@ html[lang="ru"] .tech-tags span[data-tooltip-ru]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка tooltip для русского */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]::before {
     content: '';
     position: absolute;
@@ -1293,7 +1229,6 @@ html[lang="ru"] .tech-tags span[data-tooltip-ru]::before {
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Tooltip стили для технологий, БД и инструментов - АНГЛИЙСКИЙ */
 html[lang="en"] .tech-tags span[data-tooltip-en]::after {
     content: attr(data-tooltip-en);
     position: absolute;
@@ -1324,7 +1259,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]::after {
     backdrop-filter: blur(10px);
 }
 
-/* Стрелка tooltip для английского */
 html[lang="en"] .tech-tags span[data-tooltip-en]::before {
     content: '';
     position: absolute;
@@ -1340,7 +1274,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]::before {
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Показываем tooltip при наведении */
 html[lang="ru"] .tech-tags span[data-tooltip-ru]:hover::after,
 html[lang="en"] .tech-tags span[data-tooltip-en]:hover::after {
     opacity: 1 !important;
@@ -1354,10 +1287,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     visibility: visible !important;
     transform: translateX(-50%) translateY(0) scale(1) !important;
 }
-
-/* ============================================
-   ОПЫТ РАБОТЫ
-   ============================================ */
 
 .experience-item {
     margin-bottom: 30px;
@@ -1443,7 +1372,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     line-height: 1.8;
 }
 
-/* Буквица (Drop cap) для первой буквы описания */
 .project .description::first-letter {
     initial-letter: 2;
     font-size: 2.5em;
@@ -1532,10 +1460,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     font-weight: 700;
 }
 
-/* ============================================
-   ОБРАЗОВАНИЕ
-   ============================================ */
-
 .education-item {
     margin-bottom: 25px;
     padding: 20px;
@@ -1577,10 +1501,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     font-family: var(--font-secondary);
 }
 
-/* ============================================
-   О СЕБЕ И ТЕХНИЧЕСКИЕ ВЫЗОВЫ
-   ============================================ */
-
 #about p {
     margin-bottom: 15px;
     line-height: 1.8;
@@ -1621,11 +1541,6 @@ html[lang="en"] .tech-tags span[data-tooltip-en]:hover::before {
     font-family: var(--font-secondary);
 }
 
-/* ============================================
-   ЦВЕТОВЫЕ СХЕМЫ
-   ============================================ */
-
-/* Тихая элегантность */
 body.theme-elegant {
     --primary-color: #415A77;
     --secondary-color: #1B263B;
@@ -1641,7 +1556,6 @@ body.theme-elegant {
     --font-secondary: 'Lato', sans-serif;
 }
 
-/* Нежная органика */
 body.theme-organic {
     --primary-color: #2C786C;
     --secondary-color: #2E4F4F;
@@ -1657,7 +1571,6 @@ body.theme-organic {
     --font-secondary: 'Lato', sans-serif;
 }
 
-/* Контрастная арт-палитра */
 body.theme-art {
     --primary-color: #C72C41;
     --secondary-color: #801336;
@@ -1677,7 +1590,6 @@ body.theme-art .name {
     font-size: 2.1em;
 }
 
-/* Чистый профессионализм (по умолчанию) */
 body.theme-professional {
     --primary-color: #1F4E79;
     --secondary-color: #2E75B6;
@@ -1693,7 +1605,6 @@ body.theme-professional {
     --font-secondary: 'Source Sans Pro', sans-serif;
 }
 
-/* Уютный минимализм */
 body.theme-cozy {
     --primary-color: #6A6A6A;
     --secondary-color: #1D1D1D;
@@ -1709,23 +1620,6 @@ body.theme-cozy {
     --font-secondary: 'Nunito', sans-serif;
 }
 
-/* Технологичный премиум */
-body.theme-tech {
-    --primary-color: #3C91E6;
-    --secondary-color: #1B263B;
-    --accent-color: #3C91E6;
-    --bg-color: #E0E5EB;
-    --bg-secondary: #FFFFFF;
-    --text-color: #0C1B33;
-    --text-secondary: #415A77;
-    --border-color: #415A77;
-    --shadow: 0 10px 30px rgba(12, 27, 51, 0.12);
-    --shadow-hover: 0 15px 40px rgba(12, 27, 51, 0.18);
-    --font-primary: 'IBM Plex Sans', sans-serif;
-    --font-secondary: 'Montserrat', sans-serif;
-}
-
-/* Малахитово-бирюзовая с песочным акцентом */
 body.theme-malachite {
     --primary-color: #0F544A;
     --secondary-color: #1BAA8A;
@@ -1741,7 +1635,6 @@ body.theme-malachite {
     --font-secondary: 'Work Sans', sans-serif;
 }
 
-/* Золото и серебро (премиум роскошь) */
 body.theme-luxury {
     --primary-color: #B8860B;
     --secondary-color: #D4AF37;
@@ -1753,24 +1646,14 @@ body.theme-luxury {
     --border-color: #C0C0C0;
     --shadow: 0 10px 30px rgba(184, 134, 11, 0.15);
     --shadow-hover: 0 15px 40px rgba(184, 134, 11, 0.25);
-    --font-primary: 'Playfair Display', serif;
-    --font-secondary: 'Lora', serif;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Work Sans', sans-serif;
 }
 
 body.theme-luxury .name {
     font-size: 2.1em;
 }
 
-/* ============================================
-   ПЛАШКА СО СТИЛЯМИ
-   ============================================ */
-
-
-/* ============================================
-   АДАПТИВНОСТЬ
-   ============================================ */
-
-/* Планшеты (768px - 1024px) */
 @media (max-width: 1024px) {
     .container {
         margin-top: 30px;
@@ -1804,7 +1687,6 @@ body.theme-luxury .name {
     }
 }
 
-/* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
     .container {
         margin-top: 20px;
@@ -1914,7 +1796,6 @@ body.theme-luxury .name {
         min-width: 90px;
     }
 
-    /* Упрощаем анимации на мобильных */
     .skill-badge:hover {
         animation: none;
         transform: translateY(-4px) scale(1.02);
@@ -1924,7 +1805,6 @@ body.theme-luxury .name {
         transform: translateY(-3px) scale(1.05) rotate(0deg);
     }
 
-    /* Убираем буквицу на маленьких экранах */
     .project .description::first-letter {
         initial-letter: unset;
         font-size: inherit;
@@ -1933,7 +1813,6 @@ body.theme-luxury .name {
     }
 }
 
-/* Очень маленькие мобильные (до 480px) */
 @media (max-width: 480px) {
     .container {
         margin-top: 15px;
@@ -1985,7 +1864,6 @@ body.theme-luxury .name {
     }
 }
 
-/* Экстра маленькие устройства (до 360px) */
 @media (max-width: 360px) {
     .name {
         font-size: 1.15em;
@@ -2010,10 +1888,6 @@ body.theme-luxury .name {
         font-size: 0.9em;
     }
 }
-
-/* ============================================
-   ПЕЧАТЬ
-   ============================================ */
 
 @media print {
     * {
@@ -2075,24 +1949,18 @@ body.theme-luxury .name {
         page-break-after: avoid;
     }
 
-    /* Показываем URL после ссылок */
     a[href]:after {
         content: " (" attr(href) ")";
         font-size: 0.8em;
         color: #666;
     }
 
-    /* Но не для якорных ссылок */
     a[href^="#"]:after,
     a[href^="tel:"]:after,
     a[href^="mailto:"]:after {
         content: "";
     }
 }
-
-/* ============================================
-   АНИМАЦИИ ДЛЯ СКРОЛЛИНГА
-   ============================================ */
 
 .cv-section {
     opacity: 0;
@@ -2131,10 +1999,6 @@ body.theme-luxury .name {
     }
 }
 
-/* ============================================
-   УЛУЧШЕНИЯ ДОСТУПНОСТИ
-   ============================================ */
-
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -2146,7 +2010,6 @@ body.theme-luxury .name {
     }
 }
 
-/* Focus для клавиатурной навигации */
 button:focus-visible,
 .section-header:focus-visible,
 a:focus-visible {
@@ -2154,10 +2017,6 @@ a:focus-visible {
     outline-offset: 2px;
     box-shadow: 0 0 0 5px rgba(var(--primary-color), 0.1);
 }
-
-/* ============================================
-   ПЕЧАТЬ
-   ============================================ */
 
 @media print {
     body::before {

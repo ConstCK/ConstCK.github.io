@@ -1,8 +1,3 @@
-/* ============================================
-   ЦВЕТОВЫЕ СХЕМЫ
-   ============================================ */
-
-/* Малахитово-бирюзовая (по умолчанию) */
 body.theme-malachite {
     --primary-color: #0F544A;
     --secondary-color: #1BAA8A;
@@ -18,23 +13,6 @@ body.theme-malachite {
     --font-secondary: 'Work Sans', sans-serif;
 }
 
-/* Технологичный премиум */
-body.theme-tech {
-    --primary-color: #3C91E6;
-    --secondary-color: #1B263B;
-    --accent-color: #3C91E6;
-    --bg-color: #E0E5EB;
-    --bg-secondary: #FFFFFF;
-    --text-color: #0C1B33;
-    --text-secondary: #415A77;
-    --border-color: #415A77;
-    --shadow: 0 10px 30px rgba(12, 27, 51, 0.12);
-    --shadow-hover: 0 15px 40px rgba(12, 27, 51, 0.18);
-    --font-primary: 'IBM Plex Sans', sans-serif;
-    --font-secondary: 'Montserrat', sans-serif;
-}
-
-/* Уютный минимализм */
 body.theme-cozy {
     --primary-color: #6A6A6A;
     --secondary-color: #1D1D1D;
@@ -50,7 +28,6 @@ body.theme-cozy {
     --font-secondary: 'Nunito', sans-serif;
 }
 
-/* Контрастная арт-палитра */
 body.theme-art {
     --primary-color: #C72C41;
     --secondary-color: #801336;
@@ -70,7 +47,6 @@ body.theme-art .name {
     font-size: 2.1em;
 }
 
-/* Золото и серебро (премиум роскошь) */
 body.theme-luxury {
     --primary-color: #B8860B;
     --secondary-color: #D4AF37;
@@ -82,8 +58,8 @@ body.theme-luxury {
     --border-color: #C0C0C0;
     --shadow: 0 10px 30px rgba(184, 134, 11, 0.15);
     --shadow-hover: 0 15px 40px rgba(184, 134, 11, 0.25);
-    --font-primary: 'Playfair Display', serif;
-    --font-secondary: 'Lora', serif;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Work Sans', sans-serif;
 }
 
 body.theme-luxury .name {

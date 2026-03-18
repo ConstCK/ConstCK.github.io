@@ -1,32 +1,18 @@
-// ============================================
-// UI КОМПОНЕНТЫ
-// ============================================
-
 import { CONFIG } from '../config.js';
 import { throttle, createElement } from './utils.js';
 
-/**
- * Класс для управления UI компонентами
- */
 export class UIComponents {
     constructor() {
         this.backToTopButton = null;
-
         this.init();
     }
 
-    /**
-     * Инициализация UI компонентов
-     */
     init() {
         this.createBackToTopButton();
         this.initPdfDownloadButton();
         this.logWelcomeMessage();
     }
 
-    /**
-     * Создать кнопку "Вернуться наверх"
-     */
     createBackToTopButton() {
         const config = CONFIG.BACK_TO_TOP_BUTTON;
 
@@ -39,7 +25,6 @@ export class UIComponents {
             innerHTML: '↑'
         });
 
-        // Добавляем обработчик клика
         this.backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -47,7 +32,6 @@ export class UIComponents {
             });
         });
 
-        // Добавляем hover эффекты
         this.backToTopButton.addEventListener('mouseenter', () => {
             this.backToTopButton.style.transform = 'translateY(-5px) scale(1.1)';
         });
@@ -56,7 +40,6 @@ export class UIComponents {
             this.backToTopButton.style.transform = 'translateY(0) scale(1)';
         });
 
-        // Обработчик скролла для показа/скрытия кнопки
         window.addEventListener('scroll', throttle(() => {
             this.updateBackToTopButton();
         }, CONFIG.SCROLL_THROTTLE_DELAY));
@@ -64,9 +47,6 @@ export class UIComponents {
         document.body.appendChild(this.backToTopButton);
     }
 
-    /**
-     * Обновить видимость кнопки "Вернуться наверх"
-     */
     updateBackToTopButton() {
         const config = CONFIG.BACK_TO_TOP_BUTTON;
 
@@ -79,9 +59,6 @@ export class UIComponents {
         }
     }
 
-    /**
-     * Инициализация кнопки скачивания PDF
-     */
     initPdfDownloadButton() {
         const pdfBtn = document.getElementById('pdfDownload');
 
@@ -95,14 +72,9 @@ export class UIComponents {
         });
     }
 
-    /**
-     * Обработка скачивания PDF
-     */
     handlePdfDownload() {
-        // Получаем все заголовки секций
         const sectionHeaders = document.querySelectorAll('.section-header');
 
-        // Раскрываем все секции перед печатью
         sectionHeaders.forEach(header => {
             const sectionId = header.getAttribute('data-section');
             const content = document.getElementById(sectionId);
@@ -113,33 +85,21 @@ export class UIComponents {
             }
         });
 
-        // Даём время на применение стилей, затем открываем диалог печати
         setTimeout(() => {
             window.print();
         }, 100);
     }
 
-    /**
-     * Вывести приветственное сообщение в консоль
-     */
     logWelcomeMessage() {
         console.log('%c👋 Привет! ', 'font-size: 20px; font-weight: bold; color: #1F4E79;');
         console.log('%cЭто резюме Константина Капаневса', 'font-size: 14px; color: #444444;');
-
-        // Логируем доступные темы
-        console.log('%c\n5 цветовых схем доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
-        console.log('%c  🌊 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
-        console.log('%c  🚀 Технологичный премиум', 'font-size: 10px; color: #444444;');
-        console.log('%c  🌾 Уютный минимализм', 'font-size: 10px; color: #444444;');
-        console.log('%c  🍇 Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
-        console.log('%c  ✨ Золото и серебро', 'font-size: 10px; color: #444444;');
+        console.log('%c\n4 цветовых схемы доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
+        console.log('%c  💎 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
+        console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
+        console.log('%c  🍷 Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
+        console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
     }
 
-    /**
-     * Показать уведомление
-     * @param {string} message - текст сообщения
-     * @param {number} duration - длительность показа (мс)
-     */
     showNotification(message, duration = 3000) {
         const notification = createElement('div', {
             classes: 'notification',
@@ -152,12 +112,10 @@ export class UIComponents {
 
         document.body.appendChild(notification);
 
-        // Показываем уведомление
         setTimeout(() => {
             notification.classList.add('show');
         }, 10);
 
-        // Скрываем и удаляем
         setTimeout(() => {
             notification.classList.remove('show');
             setTimeout(() => notification.remove(), 300);
@@ -165,5 +123,4 @@ export class UIComponents {
     }
 }
 
-// Создаем и экспортируем единственный экземпляр
 export const uiComponents = new UIComponents();

@@ -1,23 +1,10 @@
-// ============================================
-// МЕНЕДЖЕР ХРАНИЛИЩА (LocalStorage)
-// ============================================
-
 import { CONFIG } from '../config.js';
 
-/**
- * Класс для централизованного управления localStorage
- */
 export class StorageManager {
     constructor(prefix = CONFIG.STORAGE_PREFIX) {
         this.prefix = prefix;
     }
 
-    /**
-     * Получить значение из localStorage
-     * @param {string} key - ключ
-     * @param {*} defaultValue - значение по умолчанию
-     * @returns {*} значение или defaultValue
-     */
     get(key, defaultValue = null) {
         try {
             const value = localStorage.getItem(`${this.prefix}-${key}`);
@@ -28,11 +15,6 @@ export class StorageManager {
         }
     }
 
-    /**
-     * Сохранить значение в localStorage
-     * @param {string} key - ключ
-     * @param {*} value - значение
-     */
     set(key, value) {
         try {
             localStorage.setItem(`${this.prefix}-${key}`, JSON.stringify(value));
@@ -41,10 +23,6 @@ export class StorageManager {
         }
     }
 
-    /**
-     * Удалить значение из localStorage
-     * @param {string} key - ключ
-     */
     remove(key) {
         try {
             localStorage.removeItem(`${this.prefix}-${key}`);
@@ -53,9 +31,6 @@ export class StorageManager {
         }
     }
 
-    /**
-     * Очистить все значения с префиксом
-     */
     clear() {
         try {
             const keys = Object.keys(localStorage);
@@ -69,15 +44,9 @@ export class StorageManager {
         }
     }
 
-    /**
-     * Проверить существование ключа
-     * @param {string} key - ключ
-     * @returns {boolean}
-     */
     has(key) {
         return localStorage.getItem(`${this.prefix}-${key}`) !== null;
     }
 }
 
-// Создаем и экспортируем единственный экземпляр
 export const storage = new StorageManager();

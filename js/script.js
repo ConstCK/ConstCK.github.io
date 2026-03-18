@@ -1,11 +1,6 @@
-// ============================================
-// ПЕРЕКЛЮЧЕНИЕ ЦВЕТОВЫХ СХЕМ
-// ============================================
-
 const themeButtons = document.querySelectorAll('.theme-btn');
 const body = document.body;
 
-// Загрузка сохраненной темы из localStorage
 const savedTheme = localStorage.getItem('cv-theme') || 'malachite';
 applyTheme(savedTheme);
 
@@ -18,14 +13,10 @@ themeButtons.forEach(button => {
 });
 
 function applyTheme(theme) {
-    // Убираем все классы тем
-    body.classList.remove('theme-malachite', 'theme-tech', 'theme-cozy', 'theme-art', 'theme-luxury');
+    body.classList.remove('theme-malachite', 'theme-cozy', 'theme-art', 'theme-luxury');
 
-    // Добавляем нужный класс (malachite - это дефолт, но добавим для консистентности)
     if (theme === 'malachite') {
         body.classList.add('theme-malachite');
-    } else if (theme === 'tech') {
-        body.classList.add('theme-tech');
     } else if (theme === 'cozy') {
         body.classList.add('theme-cozy');
     } else if (theme === 'art') {
@@ -34,7 +25,6 @@ function applyTheme(theme) {
         body.classList.add('theme-luxury');
     }
 
-    // Обновляем активную кнопку
     themeButtons.forEach(btn => {
         btn.classList.remove('active');
         if (btn.getAttribute('data-theme') === theme) {
@@ -43,28 +33,19 @@ function applyTheme(theme) {
     });
 }
 
-// ============================================
-// АККОРДЕОН ДЛЯ СЕКЦИЙ
-// ============================================
-
 const sectionHeaders = document.querySelectorAll('.section-header');
-
-// Загрузка состояния секций из localStorage
 const savedSectionsState = JSON.parse(localStorage.getItem('cv-sections-state')) || {};
 
-// Применяем сохраненное состояние при загрузке
 sectionHeaders.forEach(header => {
     const sectionId = header.getAttribute('data-section');
     const content = document.getElementById(sectionId);
 
-    // Если состояние сохранено, применяем его, иначе открываем по умолчанию
     if (savedSectionsState[sectionId] !== undefined) {
         if (savedSectionsState[sectionId]) {
             header.classList.add('active');
             content.classList.add('active');
         }
     } else {
-        // По умолчанию открываем первые 2 секции
         const allHeaders = Array.from(sectionHeaders);
         const index = allHeaders.indexOf(header);
         if (index < 2) {
@@ -75,21 +56,17 @@ sectionHeaders.forEach(header => {
     }
 });
 
-// Обработчики кликов для аккордеона
 sectionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const sectionId = header.getAttribute('data-section');
         const content = document.getElementById(sectionId);
 
-        // Переключаем состояние
         header.classList.toggle('active');
         content.classList.toggle('active');
 
-        // Сохраняем состояние
         savedSectionsState[sectionId] = content.classList.contains('active');
         localStorage.setItem('cv-sections-state', JSON.stringify(savedSectionsState));
 
-        // Плавная прокрутка к секции при открытии
         if (content.classList.contains('active')) {
             setTimeout(() => {
                 header.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -97,10 +74,6 @@ sectionHeaders.forEach(header => {
         }
     });
 });
-
-// ============================================
-// АНИМАЦИЯ ПРИ СКРОЛЛЕ
-// ============================================
 
 const observerOptions = {
     threshold: 0.1,
@@ -116,14 +89,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Наблюдаем за всеми секциями
 document.querySelectorAll('.cv-section').forEach(section => {
     observer.observe(section);
 });
-
-// ============================================
-// АНИМАЦИЯ ДЛЯ SKILL BADGES
-// ============================================
 
 const skillBadges = document.querySelectorAll('.skill-badge');
 let badgeAnimated = false;
@@ -137,7 +105,6 @@ const badgeObserver = new IntersectionObserver((entries) => {
         }
     });
 
-    // Анимируем badges только один раз
     if (entries.some(entry => entry.isIntersecting)) {
         badgeAnimated = true;
     }
@@ -147,7 +114,6 @@ skillBadges.forEach(badge => {
     badgeObserver.observe(badge);
 });
 
-// Добавляем CSS анимацию через JavaScript
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideUp {
@@ -163,10 +129,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ============================================
-// ПОДСВЕТКА ТЕХНОЛОГИЙ
-// ============================================
-
 const techTags = document.querySelectorAll('.tech-tags span');
 
 techTags.forEach(tag => {
@@ -179,16 +141,10 @@ techTags.forEach(tag => {
     });
 });
 
-// ============================================
-// ГОРЯЧИЕ КЛАВИШИ
-// ============================================
-
 document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + P - открыть диалог печати
     if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault();
 
-        // Раскрываем все секции перед печатью
         sectionHeaders.forEach(header => {
             const sectionId = header.getAttribute('data-section');
             const content = document.getElementById(sectionId);
@@ -201,10 +157,9 @@ document.addEventListener('keydown', (e) => {
         }, 100);
     }
 
-    // Ctrl/Cmd + K - переключение между темами
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        const themes = ['malachite', 'tech', 'cozy', 'art', 'luxury'];
+        const themes = ['malachite', 'cozy', 'art', 'luxury'];
         const currentTheme = localStorage.getItem('cv-theme') || 'malachite';
         const currentIndex = themes.indexOf(currentTheme);
         const nextTheme = themes[(currentIndex + 1) % themes.length];
@@ -212,7 +167,6 @@ document.addEventListener('keydown', (e) => {
         localStorage.setItem('cv-theme', nextTheme);
     }
 
-    // Ctrl/Cmd + O - открыть все секции
     if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
         e.preventDefault();
         sectionHeaders.forEach(header => {
@@ -225,7 +179,6 @@ document.addEventListener('keydown', (e) => {
         localStorage.setItem('cv-sections-state', JSON.stringify(savedSectionsState));
     }
 
-    // Ctrl/Cmd + Shift + C - закрыть все секции
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
         e.preventDefault();
         sectionHeaders.forEach(header => {
@@ -239,10 +192,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ============================================
-// ПЛАВНЫЙ СКРОЛЛ ДЛЯ ВСЕХ ССЫЛОК
-// ============================================
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -255,10 +204,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// ============================================
-// ИНДИКАТОР ПРОГРЕССА СКРОЛЛА
-// ============================================
 
 const createScrollIndicator = () => {
     const indicator = document.createElement('div');
@@ -284,11 +229,6 @@ window.addEventListener('scroll', () => {
     scrollIndicator.style.width = scrolled + '%';
 });
 
-// ============================================
-// ПОДСКАЗКИ ГОРЯЧИХ КЛАВИШ
-// ============================================
-
-// Показываем подсказку при первом посещении
 if (!localStorage.getItem('cv-tips-shown')) {
     setTimeout(() => {
         const tip = document.createElement('div');
@@ -345,10 +285,6 @@ if (!localStorage.getItem('cv-tips-shown')) {
     }, 2000);
 }
 
-// ============================================
-// КНОПКА "ВЕРНУТЬСЯ НАВЕРХ"
-// ============================================
-
 const createBackToTop = () => {
     const button = document.createElement('button');
     button.innerHTML = '↑';
@@ -402,10 +338,6 @@ const createBackToTop = () => {
 
 createBackToTop();
 
-// ============================================
-// КОНСОЛЬНОЕ СООБЩЕНИЕ
-// ============================================
-
 console.log('%c👋 Привет! ', 'font-size: 20px; font-weight: bold; color: #1F4E79;');
 console.log('%cЭто резюме Константина Капаневса', 'font-size: 14px; color: #444444;');
 console.log('%cГорячие клавиши:', 'font-size: 12px; font-weight: bold; color: #1F4E79; margin-top: 10px;');
@@ -413,58 +345,41 @@ console.log('%c  Ctrl+K - Смена темы', 'font-size: 11px; color: #444444
 console.log('%c  Ctrl+O - Открыть все секции', 'font-size: 11px; color: #444444;');
 console.log('%c  Ctrl+Shift+C - Закрыть все секции', 'font-size: 11px; color: #444444;');
 console.log('%c  Ctrl+P - Печать', 'font-size: 11px; color: #444444;');
-console.log('%c\n5 цветовых схем доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
-console.log('%c  🌊 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
-console.log('%c  🚀 Технологичный премиум', 'font-size: 10px; color: #444444;');
-console.log('%c  🌾 Уютный минимализм', 'font-size: 10px; color: #444444;');
-console.log('%c  🍇 Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
-console.log('%c  ✨ Золото и серебро', 'font-size: 10px; color: #444444;');
+console.log('%c\n4 цветовых схемы доступны!', 'font-size: 12px; font-weight: bold; color: #0F544A;');
+console.log('%c  💎 Малахитово-бирюзовая', 'font-size: 10px; color: #444444;');
+console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
+console.log('%c  🍷 Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
+console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
 
-// ============================================
-// ОПРЕДЕЛЕНИЕ ТЕМНОЙ ТЕМЫ СИСТЕМЫ
-// ============================================
-
-// Автоматическое переключение на подходящую тему, если пользователь использует темную тему системы
 if (!localStorage.getItem('cv-theme')) {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Если система в темном режиме, используем "Технологичный премиум"
-        applyTheme('tech');
-        localStorage.setItem('cv-theme', 'tech');
+        applyTheme('cozy');
+        localStorage.setItem('cv-theme', 'cozy');
     }
 }
 
-// Слушаем изменения темы системы
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    // Только если пользователь не выбрал тему вручную
     if (!localStorage.getItem('cv-theme-manual')) {
-        const newTheme = e.matches ? 'tech' : 'professional';
+        const newTheme = e.matches ? 'cozy' : 'malachite';
         applyTheme(newTheme);
         localStorage.setItem('cv-theme', newTheme);
     }
 });
 
-// Отмечаем ручной выбор темы
 themeButtons.forEach(button => {
     button.addEventListener('click', () => {
         localStorage.setItem('cv-theme-manual', 'true');
     });
 });
 
-// ============================================
-// ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА RU/EN
-// ============================================
-
 const langBtn = document.getElementById('langToggle');
 let currentLang = localStorage.getItem('cv-lang') || 'ru';
 
-// Устанавливаем начальный язык в html
 document.documentElement.lang = currentLang;
 
-// Применяем сохраненный язык при загрузке
 if (currentLang === 'en') {
     switchLanguage('en');
 } else {
-    // Убеждаемся что кнопка показывает правильный текст
     langBtn.textContent = 'EN';
 }
 
@@ -475,20 +390,16 @@ langBtn.addEventListener('click', () => {
 });
 
 function switchLanguage(lang) {
-    // Обновляем текст кнопки
     langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
 
-    // Находим все элементы с data-ru и data-en
     const elements = document.querySelectorAll('[data-ru][data-en]');
 
     elements.forEach(element => {
         const text = element.getAttribute(`data-${lang}`);
         if (text) {
-            // Сохраняем HTML структуру если это нужно
             if (element.children.length === 0) {
                 element.textContent = text;
             } else {
-                // Для элементов с вложенными тегами обновляем только текстовые узлы
                 const childNodes = Array.from(element.childNodes);
                 childNodes.forEach(node => {
                     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
@@ -499,7 +410,6 @@ function switchLanguage(lang) {
         }
     });
 
-    // Обновляем title атрибуты для кнопок тем и языка
     const buttonsWithTitle = document.querySelectorAll('[data-title-ru][data-title-en]');
     buttonsWithTitle.forEach(button => {
         const titleText = button.getAttribute(`data-title-${lang}`);
@@ -508,19 +418,13 @@ function switchLanguage(lang) {
         }
     });
 
-    // Обновляем атрибут lang в html (для CSS селекторов tooltip)
     document.documentElement.lang = lang;
 }
-
-// ============================================
-// КНОПКА СКАЧИВАНИЯ PDF
-// ============================================
 
 const pdfBtn = document.getElementById('pdfDownload');
 
 if (pdfBtn) {
     pdfBtn.addEventListener('click', () => {
-        // Раскрываем все секции перед печатью
         sectionHeaders.forEach(header => {
             const sectionId = header.getAttribute('data-section');
             const content = document.getElementById(sectionId);
@@ -528,7 +432,6 @@ if (pdfBtn) {
             content.classList.add('active');
         });
 
-        // Даём время на применение стилей, затем открываем диалог печати
         setTimeout(() => {
             window.print();
         }, 100);
