@@ -352,7 +352,7 @@ console.log('%c  💎 Малахитово-бирюзовая', 'font-size: 10px
 console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
 console.log('%c  ☀️ Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
 console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
-console.log('%c  🩸 Брутальный бордовый', 'font-size: 10px; color: #444444;');
+console.log('%c  🔴 Брутальный бордовый', 'font-size: 10px; color: #444444;');
 
 if (!localStorage.getItem('cv-theme')) {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

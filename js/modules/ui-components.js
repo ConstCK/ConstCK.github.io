@@ -98,7 +98,7 @@ export class UIComponents {
         console.log('%c  🌙 Уютный минимализм', 'font-size: 10px; color: #444444;');
         console.log('%c  ☀️ Контрастная арт-палитра', 'font-size: 10px; color: #444444;');
         console.log('%c  💰 Золото и серебро', 'font-size: 10px; color: #444444;');
-        console.log('%c  🩸 Брутальный бордовый', 'font-size: 10px; color: #444444;');
+        console.log('%c  🔴 Брутальный бордовый', 'font-size: 10px; color: #444444;');
     }
 
     showNotification(message, duration = 3000) {
