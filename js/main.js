@@ -6,6 +6,7 @@ import './modules/accordion.js';
 import './modules/animations.js';
 import './modules/keyboard-shortcuts.js';
 import './modules/ui-components.js';
+import { initExperienceCalculator } from './modules/experience-calculator.js';
 import { KeyboardShortcuts } from './modules/keyboard-shortcuts.js';
 
 class CVApp {
@@ -22,6 +23,7 @@ class CVApp {
     }
 
     onReady() {
+        initExperienceCalculator();
         console.log('%c✨ CV Application initialized', 'color: #0F544A; font-weight: bold;');
         KeyboardShortcuts.logShortcuts();
         document.documentElement.classList.add('js-enabled');

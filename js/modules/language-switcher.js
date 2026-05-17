@@ -75,6 +75,13 @@ export class LanguageSwitcher {
         return this.currentLang;
     }
 
+    refreshText() {
+        if (!this.currentLang) {
+            return;
+        }
+        this.updateElementsText(this.currentLang);
+    }
+
     attachEventListeners() {
         this.langBtn.addEventListener('click', () => {
             this.toggleLanguage();
