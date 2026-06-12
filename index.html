@@ -31,19 +31,29 @@
         <nav class="theme-switcher" role="navigation" aria-label="Theme and language selection">
             <button class="theme-btn active" data-theme="malachite" data-title-ru="Малахитово-бирюзовая"
                 data-title-en="Malachite-Turquoise" title="Малахитово-бирюзовая" aria-label="Малахитово-бирюзовая тема"
-                aria-pressed="true" type="button">💎</button>
+                aria-pressed="true" type="button">
+                <img src="imgs/Tree.png" alt="" class="theme-icon" width="32" height="32" aria-hidden="true">
+            </button>
             <button class="theme-btn" data-theme="cozy" data-title-ru="Уютный минимализм"
                 data-title-en="Cozy Minimalism" title="Уютный минимализм" aria-label="Уютный минимализм"
-                aria-pressed="false" type="button">🌙</button>
+                aria-pressed="false" type="button">
+                <img src="imgs/Moon.png" alt="" class="theme-icon" width="32" height="32" aria-hidden="true">
+            </button>
             <button class="theme-btn" data-theme="art" data-title-ru="Контрастная арт-палитра"
                 data-title-en="Contrast Art Palette" title="Контрастная арт-палитра"
-                aria-label="Контрастная арт-палитра" aria-pressed="false" type="button">☀️</button>
+                aria-label="Контрастная арт-палитра" aria-pressed="false" type="button">
+                <img src="imgs/Sun.png" alt="" class="theme-icon" width="32" height="32" aria-hidden="true">
+            </button>
             <button class="theme-btn" data-theme="luxury" data-title-ru="Золото и серебро"
                 data-title-en="Gold and Silver" title="Золото и серебро" aria-label="Золото и серебро"
-                aria-pressed="false" type="button">💰</button>
+                aria-pressed="false" type="button">
+                <img src="imgs/Gold.png" alt="" class="theme-icon" width="32" height="32" aria-hidden="true">
+            </button>
             <button class="theme-btn" data-theme="burgundy" data-title-ru="Брутальный бордовый"
                 data-title-en="Brutal Burgundy" title="Брутальный бордовый" aria-label="Брутальный бордовый"
-                aria-pressed="false" type="button">🔴</button>
+                aria-pressed="false" type="button">
+                <img src="imgs/Vine.png" alt="" class="theme-icon" width="32" height="32" aria-hidden="true">
+            </button>
             <div class="theme-divider" aria-hidden="true"></div>
             <button class="lang-btn" id="langToggle" data-title-ru="Переключить язык" data-title-en="Switch language"
                 title="Переключить язык" aria-label="Переключить язык" type="button">EN</button>
@@ -255,13 +265,57 @@
                 <span class="toggle-icon" aria-hidden="true">▼</span>
             </div>
             <div class="section-content" id="experience" role="region" aria-hidden="true">
-                <!-- StackBridge (ex Effective Mobile) -->
+                <!-- ООО "Эффектив Мобайл" -->
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h4 data-ru="StackBridge (ex Effective Mobile)" data-en="StackBridge (ex Effective Mobile)">StackBridge (ex Effective Mobile)</h4>
+                        <h4 data-ru="ООО &quot;Эффектив Мобайл&quot;" data-en="Effective Mobile LLC">ООО "Эффектив Мобайл"</h4>
                         <span class="period" data-start="2024-12" data-end="present"
                             data-ru="декабрь 2024 – настоящее время"
                             data-en="December 2024 – present">декабрь 2024 – настоящее время</span>
+                    </div>
+
+                    <div class="project">
+                        <h5 data-ru="Telegram-бот и API уведомлений об оплате"
+                            data-en="Telegram Bot and Payment Notification API">
+                            Telegram-бот и API уведомлений об оплате</h5>
+                        <p class="description"
+                            data-ru="Telegram-бот и REST API для приёма webhook-уведомлений от банка о поступлении оплат и оперативного информирования пользователей"
+                            data-en="Telegram bot and REST API for receiving bank webhook notifications on incoming payments and alerting users in real time">
+                            Telegram-бот и REST API для приёма webhook-уведомлений от банка о поступлении оплат и
+                            оперативного информирования пользователей</p>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span data-ru="Backend разработчик"
+                                data-en="Backend Developer">Backend разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Разработка REST API для приёма и обработки webhook-уведомлений от банка"
+                                    data-en="Development of REST API to receive and process bank webhook notifications">
+                                    Разработка REST API для приёма и обработки webhook-уведомлений от банка</li>
+                                <li data-ru="Создание Telegram-бота для уведомления пользователей о поступлении оплат"
+                                    data-en="Telegram bot development for payment receipt notifications">
+                                    Создание Telegram-бота для уведомления пользователей о поступлении оплат</li>
+                                <li data-ru="Разделение пользователей по ролям с предоставлением различных прав доступа и функционала"
+                                    data-en="Role-based user separation with differentiated access permissions and functionality">
+                                    Разделение пользователей по ролям с предоставлением различных прав доступа и
+                                    функционала</li>
+                                <li data-ru="Регистрация и настройка webhook в банковском API"
+                                    data-en="Webhook registration and configuration in the bank API">
+                                    Регистрация и настройка webhook в банковском API</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Сквозная интеграция с банковской системой уведомлений об оплатах"
+                                    data-en="End-to-end integration with the bank payment notification system">
+                                    Сквозная интеграция с банковской системой уведомлений об оплатах</li>
+                                <li data-ru="Проект создан &quot;с нуля&quot;"
+                                    data-en="Project built from scratch">Проект создан "с нуля"</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> FastAPI, Aiogram, SQLAlchemy
+                        </div>
                     </div>
 
                     <div class="project">
