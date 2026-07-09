@@ -13,6 +13,10 @@ export class ThemeManager {
     init() {
         let savedTheme = storage.get(CONFIG.STORAGE_KEYS.THEME);
 
+        if (savedTheme === 'art') {
+            savedTheme = 'soft';
+        }
+
         if (!savedTheme && !storage.has(CONFIG.STORAGE_KEYS.THEME_MANUAL)) {
             savedTheme = prefersDarkMode() ? 'cozy' : CONFIG.DEFAULT_THEME;
         } else if (!savedTheme) {

@@ -28,23 +28,40 @@ body.theme-cozy {
     --font-secondary: 'Nunito', sans-serif;
 }
 
-body.theme-art {
-    --primary-color: #FF7400;
-    --secondary-color: #E56A00;
-    --accent-color: #FF9F4D;
-    --bg-color: #fff8f2;
-    --bg-secondary: #ffefe0;
-    --text-color: #2D132C;
-    --text-secondary: #801336;
-    --border-color: #FF7400;
-    --shadow: 0 10px 30px rgba(255, 116, 0, 0.18);
-    --shadow-hover: 0 15px 40px rgba(255, 116, 0, 0.25);
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Source Sans Pro', sans-serif;
+body.theme-soft {
+    --primary-color: #2196F3;
+    --secondary-color: #1565C0;
+    --accent-color: #81D4FA;
+    --bg-color: #F0FAFF;
+    --bg-secondary: #E3F4FC;
+    --text-color: #0C2340;
+    --text-secondary: #1E4D7B;
+    --border-color: #90CAF9;
+    --shadow: 0 4px 8px rgba(33, 150, 243, 0.1), 0 8px 20px rgba(21, 101, 192, 0.08);
+    --shadow-hover: 0 2px 4px rgba(33, 150, 243, 0.08), 0 4px 12px rgba(21, 101, 192, 0.1);
+    --font-primary: 'Nunito', sans-serif;
+    --font-secondary: 'Lato', sans-serif;
+    --radius-small: 14px;
+    --radius-medium: 22px;
+    --radius-large: 28px;
+    --transition-default: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    --soft-surface: #FFFFFF;
+    --soft-surface-hover: #EBF7FF;
+    --soft-frost: #D6EEFB;
+    --soft-sink-transform: translateY(3px) scale(0.988);
+    --soft-sink-shadow: inset 0 4px 14px rgba(21, 101, 192, 0.18), 0 1px 2px rgba(33, 150, 243, 0.06);
+    --soft-sink-shadow-deep: inset 0 6px 20px rgba(21, 101, 192, 0.24), 0 1px 1px rgba(33, 150, 243, 0.05);
+    --soft-volume: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(21, 101, 192, 0.06),
+        0 2px 0 rgba(33, 150, 243, 0.08), 0 6px 16px rgba(33, 150, 243, 0.14);
+    --soft-volume-sm: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 0 rgba(33, 150, 243, 0.06),
+        0 3px 10px rgba(33, 150, 243, 0.12);
+    --soft-volume-pill: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 0 rgba(13, 71, 161, 0.2),
+        0 4px 12px rgba(33, 150, 243, 0.28);
 }
 
-body.theme-art .name {
-    font-size: 2.1em;
+body.theme-soft .name {
+    font-size: 2.05em;
+    font-weight: 600;
 }
 
 body.theme-luxury {

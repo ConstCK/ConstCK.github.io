@@ -1,5 +1,5 @@
 export const CONFIG = {
-    THEMES: ['malachite', 'cozy', 'art', 'luxury', 'burgundy'],
+    THEMES: ['malachite', 'cozy', 'soft', 'luxury', 'burgundy'],
     DEFAULT_THEME: 'malachite',
 
     LANGUAGES: ['ru', 'en'],
