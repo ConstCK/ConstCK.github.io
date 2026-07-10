@@ -10,8 +10,9 @@ body.theme-soft {
 body.theme-soft .cv-header {
     background: linear-gradient(145deg, #4FC3F7 0%, var(--primary-color) 45%, var(--secondary-color) 100%);
     border-radius: var(--radius-large);
-    box-shadow: var(--soft-volume), 0 12px 28px rgba(33, 150, 243, 0.28);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -3px 0 rgba(13, 71, 161, 0.2),
+        0 6px 0 rgba(13, 71, 161, 0.15), 0 16px 36px rgba(33, 150, 243, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     color: #FFFFFF;
 }
 
@@ -36,16 +37,18 @@ body.theme-soft .contact-info strong {
 }
 
 body.theme-soft .photo-placeholder {
-    border: 3px solid rgba(255, 255, 255, 0.45);
-    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.3), 0 6px 18px rgba(21, 101, 192, 0.28);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 3px 8px rgba(255, 255, 255, 0.35), 0 4px 0 rgba(13, 71, 161, 0.12),
+        0 10px 24px rgba(21, 101, 192, 0.32);
     backdrop-filter: blur(12px);
 }
 
 body.theme-soft .telegram-link,
 body.theme-soft .github-link {
     border-radius: var(--radius-small);
-    background: rgba(255, 255, 255, 0.14);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 4px rgba(21, 101, 192, 0.15);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 2px 0 rgba(13, 71, 161, 0.12),
+        0 4px 10px rgba(21, 101, 192, 0.18);
 }
 
 body.theme-soft .skill-badge,
@@ -73,6 +76,7 @@ body.theme-soft .skill-badge {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-medium);
     box-shadow: var(--soft-volume);
+    transform: translateY(0);
 }
 
 body.theme-soft .skill-badge::before {
@@ -132,12 +136,21 @@ body.theme-soft .section-content {
 
 body.theme-soft .skill-group {
     background: linear-gradient(180deg, #FFFFFF 0%, var(--soft-frost) 100%);
-    border-color: var(--border-color);
-    box-shadow: var(--soft-volume-sm);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--soft-volume);
 }
 
 body.theme-soft .skill-group h4 {
     color: var(--secondary-color);
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--soft-surface-hover) 100%);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--soft-volume-sm);
+}
+
+body.theme-soft .skill-group h4:hover {
+    transform: var(--soft-sink-transform);
+    box-shadow: var(--soft-sink-shadow);
+    border-left-width: 4px;
 }
 
 body.theme-soft .skill-group li {
@@ -171,7 +184,7 @@ body.theme-soft .project {
     background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-color) 100%);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-small);
-    box-shadow: var(--soft-volume-sm);
+    box-shadow: var(--soft-volume);
 }
 
 body.theme-soft .project h5 {
@@ -199,6 +212,7 @@ body.theme-soft .tech-stack strong {
 body.theme-soft .tech-stack {
     box-shadow: var(--soft-volume-sm);
     border: 1px solid var(--border-color);
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--soft-surface-hover) 100%);
 }
 
 body.theme-soft mark.tech-highlight {
@@ -206,7 +220,8 @@ body.theme-soft mark.tech-highlight {
     color: var(--text-color);
     border-radius: 6px;
     padding: 0 0.35em;
-    box-shadow: var(--soft-volume-sm);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 0 rgba(33, 150, 243, 0.1),
+        0 3px 8px rgba(33, 150, 243, 0.14);
     border: 1px solid var(--border-color);
     font-weight: 600;
 }
@@ -224,7 +239,7 @@ body.theme-soft .education-item,
 body.theme-soft .challenge-block {
     background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-color) 100%);
     border: 1px solid var(--border-color);
-    box-shadow: var(--soft-volume-sm);
+    box-shadow: var(--soft-volume);
 }
 
 body.theme-soft .challenge-block h4,
@@ -246,12 +261,13 @@ body.theme-soft .theme-switcher {
 body.theme-soft .theme-btn {
     box-shadow: var(--soft-volume-sm);
     background: linear-gradient(180deg, #FFFFFF 0%, var(--soft-frost) 100%);
+    border: 1px solid rgba(144, 202, 249, 0.6);
 }
 
 body.theme-soft .theme-btn.active {
     background: var(--soft-frost);
     border-color: var(--primary-color);
-    box-shadow: inset 0 2px 6px rgba(21, 101, 192, 0.14), var(--soft-volume-sm);
+    box-shadow: inset 0 2px 5px rgba(21, 101, 192, 0.12), var(--soft-volume-sm);
 }
 
 body.theme-soft .lang-btn,
@@ -267,7 +283,7 @@ body.theme-soft .pdf-btn {
 body.theme-soft .back-to-top {
     background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     box-shadow: var(--soft-volume-pill);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* Hover — утопание */

@@ -38,9 +38,13 @@ export class Animations {
         const badgeObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting && !this.badgeAnimated) {
+                    const delay = document.body.classList.contains('theme-malachite')
+                        ? 0
+                        : index * CONFIG.BADGE_ANIMATION_DELAY;
+
                     setTimeout(() => {
-                        entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
-                    }, index * CONFIG.BADGE_ANIMATION_DELAY);
+                        entry.target.style.animation = this.getBadgeAnimation(index);
+                    }, delay);
                 }
             });
 
@@ -54,6 +58,11 @@ export class Animations {
     }
 
     initTechTagsHover() {
+        if (document.body.classList.contains('theme-soft')
+            || document.body.classList.contains('theme-malachite')) {
+            return;
+        }
+
         const techTags = document.querySelectorAll('.tech-tags span');
 
         techTags.forEach(tag => {
@@ -65,6 +74,14 @@ export class Animations {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
+    }
+
+    getBadgeAnimation(index) {
+        if (document.body.classList.contains('theme-malachite')) {
+            return `malachiteBadgeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) ${index * CONFIG.BADGE_ANIMATION_DELAY}ms forwards`;
+        }
+
+        return `slideUp 0.6s ease-out forwards`;
     }
 
     initScrollIndicator() {
