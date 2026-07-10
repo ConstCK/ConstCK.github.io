@@ -1,6 +1,6 @@
 /*
- * Малахитово-бирюзовая тема — «кристалл»: свечение и лёгкое расцветание при hover.
- * Отличается от soft (утопание) и остальных (резкий подъём).
+ * Малахитово-бирюзовая тема — «кристалл».
+ * Контейнеры: объём + подсветка при hover/focus. Листья: резиновое сжатие.
  */
 
 @keyframes malachiteReveal {
@@ -24,17 +24,6 @@
     to {
         opacity: 1;
         transform: translateX(0) rotate(0);
-    }
-}
-
-@keyframes malachiteGlow {
-    0%,
-    100% {
-        box-shadow: var(--malachite-glow);
-    }
-
-    50% {
-        box-shadow: var(--malachite-glow-hover);
     }
 }
 
@@ -62,10 +51,111 @@ body.theme-malachite {
     animation: malachiteBadgeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Резиновое сжатие — только интерактивные «листья» */
+body.theme-malachite .skill-badge,
+body.theme-malachite .period,
+body.theme-malachite mark.tech-highlight,
+body.theme-malachite .skill-group h4,
+body.theme-malachite .contact-info > span,
+body.theme-malachite .telegram-link,
+body.theme-malachite .github-link,
+body.theme-malachite .experience-header h4,
+body.theme-malachite .project,
+body.theme-malachite .education-item,
+body.theme-malachite .challenge-block,
+body.theme-malachite .tech-stack {
+    position: relative;
+    transition: var(--malachite-transition-leaf), var(--malachite-transition-radius);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* Резиновый оверлей — только там, где ::after не занят подсказками */
+body.theme-malachite .skill-badge,
+body.theme-malachite .period {
+    overflow: hidden;
+}
+
+body.theme-malachite .contact-info > span,
+body.theme-malachite .experience-header h4,
+body.theme-malachite .project,
+body.theme-malachite .education-item,
+body.theme-malachite .challenge-block,
+body.theme-malachite .tech-stack,
+body.theme-malachite .telegram-link,
+body.theme-malachite .github-link,
+body.theme-malachite mark.tech-highlight,
+body.theme-malachite .skill-group li {
+    overflow: visible;
+}
+
+body.theme-malachite .tech-tags span {
+    position: relative;
+    overflow: visible;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--malachite-volume-pill);
+    border-radius: 999px;
+    transition: var(--malachite-transition-leaf);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    filter: none;
+    rotate: none;
+}
+
+body.theme-malachite .tech-tags span:hover,
+body.theme-malachite .tech-tags span:focus-visible {
+    transform: var(--malachite-rubber-transform) !important;
+    border-radius: 999px !important;
+    box-shadow: var(--malachite-rubber-shadow-deep) !important;
+    filter: none !important;
+    outline: none;
+}
+
+body.theme-malachite .tech-tags span:not(:hover):not(:focus-visible) {
+    transform: translate3d(0, 0, 0);
+    border-radius: 999px;
+    box-shadow: var(--malachite-volume-pill);
+}
+
+/* Контейнеры — без деформации, только подсветка */
+body.theme-malachite .cv-section,
+body.theme-malachite .skill-group,
+body.theme-malachite .section-header {
+    position: relative;
+    transition: var(--malachite-transition-container);
+}
+
+body.theme-malachite .skill-badge::after,
+body.theme-malachite .period::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--malachite-duration) ease;
+    background: radial-gradient(ellipse 95% 85% at 50% 58%,
+            rgba(10, 61, 53, 0.22) 0%,
+            rgba(10, 77, 67, 0.08) 35%,
+            rgba(126, 235, 200, 0.14) 55%,
+            rgba(255, 255, 255, 0.2) 78%,
+            transparent 92%);
+}
+
+body.theme-malachite .skill-badge:hover::after,
+body.theme-malachite .skill-badge:focus-visible::after,
+body.theme-malachite .period:hover::after,
+body.theme-malachite .period:focus-visible::after {
+    opacity: 1;
+}
+
 body.theme-malachite .cv-header {
     background: linear-gradient(125deg, var(--accent-color) 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
     border-radius: var(--radius-large);
-    box-shadow: var(--malachite-glow), 0 14px 36px rgba(10, 77, 67, 0.22);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -4px 0 rgba(10, 61, 53, 0.2),
+        0 6px 0 rgba(10, 77, 67, 0.15), 0 14px 36px rgba(10, 77, 67, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.25);
     position: relative;
     overflow: hidden;
@@ -86,39 +176,70 @@ body.theme-malachite .name {
 
 body.theme-malachite .photo-placeholder {
     border: 3px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 0 3px rgba(126, 235, 200, 0.25), 0 8px 24px rgba(10, 77, 67, 0.25);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), 0 4px 0 rgba(10, 77, 67, 0.15),
+        0 0 0 3px rgba(126, 235, 200, 0.25), 0 8px 24px rgba(10, 77, 67, 0.25);
 }
 
-body.theme-malachite .skill-badge,
-body.theme-malachite .cv-section,
-body.theme-malachite .project,
-body.theme-malachite .skill-group,
-body.theme-malachite .education-item,
-body.theme-malachite .challenge-block,
-body.theme-malachite .tech-tags span,
-body.theme-malachite .theme-btn,
-body.theme-malachite .lang-btn,
-body.theme-malachite .pdf-btn {
-    transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
-        box-shadow 0.4s ease,
-        border-color 0.35s ease,
-        background 0.35s ease;
+/* Контактные данные в шапке */
+body.theme-malachite .contact-info > span {
+    padding: 6px 12px;
+    border-radius: var(--radius-small);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 8px rgba(10, 61, 53, 0.15);
+}
+
+body.theme-malachite .contact-info > span:hover,
+body.theme-malachite .contact-info > span:focus-within {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.theme-malachite .telegram-link,
+body.theme-malachite .github-link {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+body.theme-malachite .telegram-link:hover,
+body.theme-malachite .telegram-link:focus-visible,
+body.theme-malachite .github-link:hover,
+body.theme-malachite .github-link:focus-visible {
+    animation: none;
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
+    background: rgba(255, 255, 255, 0.28);
+    outline: none;
 }
 
 body.theme-malachite .skill-badge {
     background: linear-gradient(160deg, #FFFFFF 0%, var(--bg-secondary) 100%);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-medium);
-    box-shadow: var(--malachite-glow);
+    border-radius: var(--malachite-radius-rest);
+    box-shadow: var(--malachite-volume);
     border-left: 4px solid var(--secondary-color);
 }
 
-body.theme-malachite .skill-badge:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .skill-badge:hover,
+body.theme-malachite .skill-badge:focus-visible {
+    animation: none !important;
+    transform: var(--malachite-rubber-transform);
+    border-radius: var(--malachite-rubber-radius);
+    box-shadow: var(--malachite-rubber-shadow-deep);
     border-color: var(--secondary-color);
-    animation: malachiteGlow 1.8s ease-in-out infinite;
-    border-left-width: 5px;
+    border-left-width: 4px;
+    outline: none;
+}
+
+body.theme-malachite .skill-badge:not(:hover):not(:focus-visible) {
+    animation: none !important;
+    transform: translate3d(0, 0, 0);
+    border-radius: var(--malachite-radius-rest);
+    box-shadow: var(--malachite-volume);
 }
 
 body.theme-malachite .skill-badge:hover::before {
@@ -128,30 +249,32 @@ body.theme-malachite .skill-badge:hover::before {
 body.theme-malachite .cv-section {
     background: linear-gradient(160deg, #FFFFFF 0%, var(--bg-color) 100%);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-medium);
-    box-shadow: var(--malachite-glow);
+    border-radius: var(--malachite-radius-rest);
+    box-shadow: var(--malachite-volume);
     border-left: 5px solid var(--primary-color);
+    overflow: visible;
 }
 
 body.theme-malachite .cv-section::before {
     opacity: 0;
 }
 
-body.theme-malachite .cv-section:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .cv-section:hover:not(:has(.skill-group:hover, .project:hover, .education-item:hover, .challenge-block:hover, mark.tech-highlight:hover, .tech-tags span:hover, .period:hover, .tech-stack:hover, .experience-header h4:hover)),
+body.theme-malachite .cv-section:focus-within {
     border-left-color: var(--secondary-color);
+    box-shadow: var(--malachite-volume), var(--malachite-focus-highlight);
 }
 
 body.theme-malachite .section-header {
     background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-color) 100%);
     border-left: none;
-    border-radius: var(--radius-medium) var(--radius-medium) 0 0;
+    border-radius: var(--malachite-radius-rest) var(--malachite-radius-rest) 0 0;
 }
 
-body.theme-malachite .section-header:hover {
+body.theme-malachite .section-header:hover,
+body.theme-malachite .section-header:focus-within {
     background: var(--bg-secondary);
-    border-left-color: transparent;
+    box-shadow: var(--malachite-focus-highlight-sm);
 }
 
 body.theme-malachite .section-header h3 {
@@ -170,29 +293,39 @@ body.theme-malachite .skill-group {
     background: #FFFFFF;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-small);
-    box-shadow: var(--malachite-glow);
+    box-shadow: var(--malachite-volume-sm);
+    overflow: visible;
 }
 
-body.theme-malachite .skill-group:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .skill-group:hover:not(:has(h4:hover, li:hover, mark.tech-highlight:hover, .tech-tags span:hover)),
+body.theme-malachite .skill-group:focus-within {
     border-color: var(--secondary-color);
+    box-shadow: var(--malachite-volume-sm), var(--malachite-focus-highlight-sm);
 }
 
 body.theme-malachite .skill-group h4 {
     border-left: 4px solid var(--accent-color);
     border-radius: var(--radius-small);
     box-shadow: none;
+    overflow: visible;
+    transition: var(--malachite-transition-leaf), var(--malachite-transition-radius);
 }
 
-body.theme-malachite .skill-group h4:hover {
-    transform: translateX(4px);
-    box-shadow: var(--malachite-glow);
+body.theme-malachite .skill-group h4:hover,
+body.theme-malachite .skill-group h4:focus-visible {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
     border-left-color: var(--secondary-color);
+    outline: none;
 }
 
-body.theme-malachite .skill-group li:hover {
-    transform: translateX(6px);
+body.theme-malachite .skill-group li {
+    transition: transform 0.4s var(--malachite-ease), color 0.35s ease;
+}
+
+body.theme-malachite .skill-group li:hover:not(:has(mark.tech-highlight:hover)) {
+    transform: translateX(4px);
     color: var(--primary-color);
 }
 
@@ -201,52 +334,126 @@ body.theme-malachite .project {
     border: 1px solid var(--border-color);
     border-left: 4px solid var(--secondary-color);
     border-radius: var(--radius-small);
-    box-shadow: var(--malachite-glow);
+    box-shadow: var(--malachite-volume-sm);
+    overflow: visible;
+    cursor: default;
 }
 
+/* Перебить глобальный translateX(8px) из styles.css */
 body.theme-malachite .project:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+    animation: none;
+    transform: translate3d(0, 0, 0);
+}
+
+body.theme-malachite .project:hover:not(:has(.tech-stack:hover, mark.tech-highlight:hover)) {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
     border-left-color: var(--accent-color);
-    border-left-width: 5px;
+}
+
+body.theme-malachite .project:hover:has(.tech-stack:hover, mark.tech-highlight:hover) {
+    transform: translate3d(0, 0, 0);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+body.theme-malachite .project:not(:hover) {
+    transform: translate3d(0, 0, 0);
+    border-radius: var(--radius-small);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+/* Опыт работы — интерактивные элементы */
+body.theme-malachite .experience-header h4 {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: var(--radius-small);
+    background: rgba(126, 235, 200, 0.12);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+body.theme-malachite .experience-header h4:hover,
+body.theme-malachite .experience-header h4:focus-visible {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
+    outline: none;
+}
+
+body.theme-malachite .project h5 {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: rgba(126, 235, 200, 0.1);
+    border-left: 3px solid var(--accent-color);
+    box-shadow: none;
 }
 
 body.theme-malachite .period {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    box-shadow: var(--malachite-glow);
+    box-shadow: var(--malachite-volume-pill);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    transition: var(--malachite-transition-round);
 }
 
-body.theme-malachite .period:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .period:not(:hover):not(:focus-visible) {
+    transform: translate3d(0, 0, 0);
+    border-radius: 999px;
+    box-shadow: var(--malachite-volume-pill);
+}
+
+body.theme-malachite .period:hover,
+body.theme-malachite .period:focus-visible {
+    animation: none;
+    transform: var(--malachite-rubber-transform-pill);
+    border-radius: 999px;
+    box-shadow: var(--malachite-rubber-shadow-deep);
+    outline: none;
 }
 
 body.theme-malachite mark.tech-highlight {
     background: rgba(126, 235, 200, 0.25);
     color: var(--primary-color);
     border-radius: 4px;
-    box-shadow: inset 0 0 0 1px rgba(31, 168, 130, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 2px 0 rgba(31, 168, 130, 0.12),
+        inset 0 0 0 1px rgba(31, 168, 130, 0.2);
+    transition: var(--malachite-transition-leaf), var(--malachite-transition-radius);
+    pointer-events: auto;
+    cursor: pointer;
+    overflow: visible;
 }
 
-body.theme-malachite mark.tech-highlight:hover {
-    background: rgba(126, 235, 200, 0.45);
-    box-shadow: 0 0 12px rgba(31, 168, 130, 0.3);
-    transform: scale(1.04);
+/* Подсказка на li — mark должен получать hover и «тонуть» */
+body.theme-malachite .skill-group li[data-tooltip-ru] mark.tech-highlight:not([data-tooltip-ru]),
+body.theme-malachite .skill-group li[data-tooltip-en] mark.tech-highlight:not([data-tooltip-en]),
+body.theme-malachite .skill-group li mark.tech-highlight {
+    pointer-events: auto;
+    position: relative;
+    z-index: 1;
 }
 
-body.theme-malachite .tech-tags span {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--malachite-glow);
+body.theme-malachite mark.tech-highlight:hover,
+body.theme-malachite mark.tech-highlight:focus-visible,
+body.theme-malachite .skill-group li mark.tech-highlight:hover,
+body.theme-malachite .skill-group li mark.tech-highlight:focus-visible {
+    background: rgba(126, 235, 200, 0.35);
+    border-radius: 6px;
+    box-shadow: var(--malachite-rubber-shadow) !important;
+    transform: var(--malachite-rubber-transform-sm) !important;
+    animation: none;
+    filter: none;
+    outline: none;
 }
 
-body.theme-malachite .tech-tags span:hover {
-    transform: scale(1.06) !important;
-    box-shadow: var(--malachite-glow-hover) !important;
-    filter: brightness(1.08) !important;
-    rotate: 0deg !important;
+/* Плавные подсказки без дёрганья тега */
+html[lang="ru"] body.theme-malachite .tech-tags span[data-tooltip-ru]::after,
+html[lang="en"] body.theme-malachite .tech-tags span[data-tooltip-en]::after,
+html[lang="ru"] body.theme-malachite .tech-tags span[data-tooltip-ru]::before,
+html[lang="en"] body.theme-malachite .tech-tags span[data-tooltip-en]::before {
+    transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s var(--malachite-ease);
 }
 
 body.theme-malachite .education-item,
@@ -254,42 +461,203 @@ body.theme-malachite .challenge-block {
     background: #FFFFFF;
     border: 1px solid var(--border-color);
     border-left: 4px solid var(--accent-color);
-    box-shadow: var(--malachite-glow);
+    box-shadow: var(--malachite-volume-sm);
+    border-radius: var(--radius-small);
 }
 
-body.theme-malachite .education-item:hover,
-body.theme-malachite .challenge-block:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .education-item {
+    overflow: visible;
+    cursor: default;
+}
+
+/* Перебить глобальный translateX(5px) из styles.css */
+body.theme-malachite .education-item:hover {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+}
+
+body.theme-malachite .education-item:hover:not(:has(.period:hover, mark.tech-highlight:hover)) {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
     border-left-color: var(--secondary-color);
 }
 
-body.theme-malachite .tech-stack {
-    border-left: 3px solid var(--accent-color);
-    box-shadow: var(--malachite-glow);
+body.theme-malachite .education-item:hover:has(.period:hover, mark.tech-highlight:hover) {
+    transform: translate3d(0, 0, 0);
+    box-shadow: var(--malachite-volume-sm);
 }
 
-body.theme-malachite .tech-stack:hover {
-    transform: translateX(4px);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .education-item:not(:hover) {
+    transform: translate3d(0, 0, 0);
+    border-radius: var(--radius-small);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+body.theme-malachite .challenge-block {
+    overflow: visible;
+    cursor: default;
+}
+
+body.theme-malachite .challenge-block:hover {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+}
+
+body.theme-malachite .challenge-block:hover:not(:has(.period:hover, mark.tech-highlight:hover)) {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
+    border-left-color: var(--secondary-color);
+}
+
+body.theme-malachite .challenge-block:hover:has(.period:hover, mark.tech-highlight:hover) {
+    transform: translate3d(0, 0, 0);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+body.theme-malachite .challenge-block:not(:hover) {
+    transform: translate3d(0, 0, 0);
+    border-radius: var(--radius-small);
+    box-shadow: var(--malachite-volume-sm);
+}
+
+body.theme-malachite .tech-stack {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 8px;
+    background: rgba(126, 235, 200, 0.08);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    box-shadow: var(--malachite-volume-sm);
+    border-radius: var(--radius-small);
+    cursor: default;
+}
+
+body.theme-malachite .tech-stack:hover,
+body.theme-malachite .tech-stack:focus-within {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: var(--malachite-rubber-radius-sm);
+    box-shadow: var(--malachite-rubber-shadow);
+    border-left-color: var(--secondary-color);
+    outline: none;
 }
 
 body.theme-malachite .theme-switcher {
     background: linear-gradient(160deg, #FFFFFF, var(--bg-secondary));
     border: 1px solid var(--border-color);
-    box-shadow: var(--malachite-glow);
+    box-shadow: var(--malachite-volume-sm);
+    overflow: visible;
+}
+
+body.theme-malachite .theme-btn,
+body.theme-malachite .lang-btn,
+body.theme-malachite .pdf-btn {
+    overflow: visible;
+    border-radius: 50%;
+    box-shadow: var(--malachite-volume-sm);
+    transform: translate3d(0, 0, 0);
+    transition: var(--malachite-transition-round);
+    animation: none;
 }
 
 body.theme-malachite .theme-btn:hover,
+body.theme-malachite .theme-btn:focus-visible,
 body.theme-malachite .lang-btn:hover,
-body.theme-malachite .pdf-btn:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .lang-btn:focus-visible,
+body.theme-malachite .pdf-btn:hover,
+body.theme-malachite .pdf-btn:focus-visible {
+    transform: var(--malachite-rubber-transform-sm);
+    border-radius: 50%;
+    box-shadow: var(--malachite-rubber-shadow);
+    outline: none;
+    animation: none;
+    background: rgba(126, 235, 200, 0.12);
 }
 
-body.theme-malachite .theme-btn.active {
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .theme-btn:not(:hover):not(:focus-visible),
+body.theme-malachite .lang-btn:not(:hover):not(:focus-visible),
+body.theme-malachite .pdf-btn:not(:hover):not(:focus-visible) {
+    transform: translate3d(0, 0, 0);
+    border-radius: 50%;
+}
+
+body.theme-malachite .theme-btn:hover .theme-icon,
+body.theme-malachite .theme-btn:focus-visible .theme-icon {
+    transform: none;
+}
+
+body.theme-malachite .theme-btn.active:not(:hover):not(:focus-visible) {
+    transform: translate3d(0, 0, 0);
+    border-radius: 50%;
+    box-shadow: var(--malachite-volume-sm), var(--malachite-focus-highlight-sm);
     border-color: var(--secondary-color);
+}
+
+html[lang="ru"] body.theme-malachite .theme-btn[data-title-ru]::after,
+html[lang="en"] body.theme-malachite .theme-btn[data-title-en]::after,
+html[lang="ru"] body.theme-malachite .theme-btn[data-title-ru]::before,
+html[lang="en"] body.theme-malachite .theme-btn[data-title-en]::before,
+html[lang="ru"] body.theme-malachite .lang-btn[data-title-ru]::after,
+html[lang="en"] body.theme-malachite .lang-btn[data-title-en]::after,
+html[lang="ru"] body.theme-malachite .lang-btn[data-title-ru]::before,
+html[lang="en"] body.theme-malachite .lang-btn[data-title-en]::before,
+html[lang="ru"] body.theme-malachite .pdf-btn[data-title-ru]::after,
+html[lang="en"] body.theme-malachite .pdf-btn[data-title-en]::after,
+html[lang="ru"] body.theme-malachite .pdf-btn[data-title-ru]::before,
+html[lang="en"] body.theme-malachite .pdf-btn[data-title-en]::before {
+    transition: opacity 0.35s var(--malachite-ease), visibility 0.35s var(--malachite-ease),
+        transform 0.35s var(--malachite-ease);
+    z-index: 100000;
+}
+
+html[lang="ru"] body.theme-malachite .theme-btn[data-title-ru]:hover::after,
+html[lang="en"] body.theme-malachite .theme-btn[data-title-en]:hover::after,
+html[lang="ru"] body.theme-malachite .lang-btn[data-title-ru]:hover::after,
+html[lang="en"] body.theme-malachite .lang-btn[data-title-en]:hover::after,
+html[lang="ru"] body.theme-malachite .pdf-btn[data-title-ru]:hover::after,
+html[lang="en"] body.theme-malachite .pdf-btn[data-title-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html[lang="ru"] body.theme-malachite .theme-btn[data-title-ru]:hover::before,
+html[lang="en"] body.theme-malachite .theme-btn[data-title-en]:hover::before,
+html[lang="ru"] body.theme-malachite .lang-btn[data-title-ru]:hover::before,
+html[lang="en"] body.theme-malachite .lang-btn[data-title-en]:hover::before,
+html[lang="ru"] body.theme-malachite .pdf-btn[data-title-ru]:hover::before,
+html[lang="en"] body.theme-malachite .pdf-btn[data-title-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html[lang="ru"] body.theme-malachite mark.tech-highlight[data-tooltip-ru]:hover::after,
+html[lang="en"] body.theme-malachite mark.tech-highlight[data-tooltip-en]:hover::after,
+html[lang="ru"] body.theme-malachite .skill-group li[data-tooltip-ru]:hover::after,
+html[lang="en"] body.theme-malachite .skill-group li[data-tooltip-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html[lang="ru"] body.theme-malachite mark.tech-highlight[data-tooltip-ru]:hover::before,
+html[lang="en"] body.theme-malachite mark.tech-highlight[data-tooltip-en]:hover::before,
+html[lang="ru"] body.theme-malachite .skill-group li[data-tooltip-ru]:hover::before,
+html[lang="en"] body.theme-malachite .skill-group li[data-tooltip-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html[lang="ru"] body.theme-malachite .tech-tags span[data-tooltip-ru]:hover::after,
+html[lang="en"] body.theme-malachite .tech-tags span[data-tooltip-en]:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html[lang="ru"] body.theme-malachite .tech-tags span[data-tooltip-ru]:hover::before,
+html[lang="en"] body.theme-malachite .tech-tags span[data-tooltip-en]:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 body.theme-malachite .scroll-indicator {
@@ -298,18 +666,71 @@ body.theme-malachite .scroll-indicator {
     box-shadow: 0 0 12px rgba(31, 168, 130, 0.5);
 }
 
-body.theme-malachite .back-to-top:hover {
-    transform: var(--malachite-hover);
-    box-shadow: var(--malachite-glow-hover);
+body.theme-malachite .back-to-top {
+    position: fixed;
+    bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    right: max(36px, env(safe-area-inset-right, 0px));
+    left: auto;
+    top: auto;
+    margin: 0;
+    border-radius: 50%;
+    box-shadow: var(--malachite-volume-pill);
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: var(--malachite-transition-round);
+    z-index: 1000;
+}
+
+body.theme-malachite .back-to-top:hover,
+body.theme-malachite .back-to-top:focus-visible {
+    transform: var(--malachite-rubber-transform-pill);
+    border-radius: 50%;
+    box-shadow: var(--malachite-rubber-shadow-deep);
+    outline: none;
+}
+
+body.theme-malachite .back-to-top:not(:hover):not(:focus-visible) {
+    transform: translate3d(0, 0, 0);
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {
-    body.theme-malachite .skill-badge:hover {
-        animation: none;
-        transform: var(--malachite-hover);
+    body.theme-malachite .tech-tags span:hover,
+    body.theme-malachite .tech-tags span:focus-visible {
+        transform: var(--malachite-rubber-transform) !important;
+        border-radius: 999px !important;
     }
 
-    body.theme-malachite .tech-tags span:hover {
-        transform: scale(1.04) !important;
+    body.theme-malachite .skill-badge:hover,
+    body.theme-malachite .skill-badge:focus-visible {
+        animation: none !important;
+        transform: var(--malachite-rubber-transform) !important;
+    }
+
+    body.theme-malachite .project:hover:not(:has(.tech-stack:hover, mark.tech-highlight:hover)) {
+        transform: var(--malachite-rubber-transform-sm) !important;
+    }
+
+    body.theme-malachite .education-item:hover:not(:has(.period:hover, mark.tech-highlight:hover)) {
+        transform: var(--malachite-rubber-transform-sm) !important;
+    }
+
+    body.theme-malachite .challenge-block:hover:not(:has(.period:hover, mark.tech-highlight:hover)) {
+        transform: var(--malachite-rubber-transform-sm) !important;
+    }
+
+    body.theme-malachite .period:hover,
+    body.theme-malachite .period:focus-visible {
+        animation: none;
+        transform: var(--malachite-rubber-transform-pill) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.theme-malachite .skill-badge,
+    body.theme-malachite .cv-section,
+    body.theme-malachite .project,
+    body.theme-malachite .tech-tags span {
+        transition-duration: 0.01ms;
     }
 }

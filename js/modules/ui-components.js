@@ -22,7 +22,14 @@ export class UIComponents {
                 'aria-label': 'Вернуться наверх',
                 'type': 'button'
             },
-            innerHTML: '↑'
+            innerHTML: '↑',
+            styles: {
+                position: 'fixed',
+                bottom: `${config.BOTTOM_OFFSET}px`,
+                right: `${config.RIGHT_OFFSET}px`,
+                left: 'auto',
+                top: 'auto'
+            }
         });
 
         this.backToTopButton.addEventListener('click', () => {
@@ -30,14 +37,6 @@ export class UIComponents {
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-
-        this.backToTopButton.addEventListener('mouseenter', () => {
-            this.backToTopButton.style.transform = 'translateY(-5px) scale(1.1)';
-        });
-
-        this.backToTopButton.addEventListener('mouseleave', () => {
-            this.backToTopButton.style.transform = 'translateY(0) scale(1)';
         });
 
         window.addEventListener('scroll', throttle(() => {

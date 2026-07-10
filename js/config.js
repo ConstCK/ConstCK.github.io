@@ -37,7 +37,7 @@ export const CONFIG = {
         SHOW_THRESHOLD: 300,
         SIZE: 50,
         BOTTOM_OFFSET: 30,
-        RIGHT_OFFSET: 30
+        RIGHT_OFFSET: 42
     },
 
     OBSERVER_OPTIONS: {

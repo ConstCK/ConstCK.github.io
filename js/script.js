@@ -132,16 +132,20 @@ style.textContent = `
 document.head.appendChild(style);
 
 const techTags = document.querySelectorAll('.tech-tags span');
+const skipTechTagJsHover = body.classList.contains('theme-soft')
+    || body.classList.contains('theme-malachite');
 
-techTags.forEach(tag => {
-    tag.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-2px) scale(1.05)';
-    });
+if (!skipTechTagJsHover) {
+    techTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-2px) scale(1.05)';
+        });
 
-    tag.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0) scale(1)';
+        tag.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
     });
-});
+}
 
 document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'p') {

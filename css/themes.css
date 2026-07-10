@@ -16,9 +16,49 @@ body.theme-malachite {
     --radius-large: 22px;
     --transition-default: all 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
     --malachite-glow: 0 0 0 1px rgba(126, 235, 200, 0.35), 0 6px 20px rgba(10, 77, 67, 0.12);
-    --malachite-glow-hover: 0 0 0 2px rgba(126, 235, 200, 0.6), 0 0 24px rgba(31, 168, 130, 0.35),
-        0 10px 28px rgba(10, 77, 67, 0.16);
-    --malachite-hover: scale(1.018) translateY(-3px);
+    --malachite-volume: inset 0 2px 0 rgba(255, 255, 255, 0.96), inset 0 -3px 0 rgba(10, 77, 67, 0.09),
+        0 1px 0 rgba(255, 255, 255, 0.75), 0 5px 0 rgba(10, 77, 67, 0.05), 0 8px 0 rgba(31, 168, 130, 0.1),
+        0 12px 28px rgba(10, 77, 67, 0.17), 0 0 0 1px rgba(126, 235, 200, 0.42);
+    --malachite-volume-sm: inset 0 2px 0 rgba(255, 255, 255, 0.94), inset 0 -2px 0 rgba(10, 77, 67, 0.07),
+        0 2px 0 rgba(31, 168, 130, 0.1), 0 6px 16px rgba(10, 77, 67, 0.14),
+        0 0 0 1px rgba(126, 235, 200, 0.35);
+    --malachite-volume-pill: inset 0 2px 0 rgba(255, 255, 255, 0.4), inset 0 -3px 0 rgba(10, 61, 53, 0.25),
+        0 3px 0 rgba(10, 77, 67, 0.22), 0 8px 22px rgba(10, 77, 67, 0.28);
+    --malachite-radius-rest: var(--radius-medium);
+    --malachite-rubber-transform: scale(1.012, 0.968) translate3d(0, 2px, 0);
+    --malachite-rubber-transform-sm: scale(1.01, 0.972) translate3d(0, 2px, 0);
+    --malachite-rubber-transform-pill: scale(1.012, 0.968) translate3d(0, 1px, 0);
+    --malachite-rubber-radius: 18px;
+    --malachite-rubber-radius-sm: 12px;
+    --malachite-rubber-radius-lg: 20px;
+    --malachite-rubber-radius-pill: 1.25rem;
+    --malachite-rubber-shadow: inset 0 5px 12px rgba(10, 61, 53, 0.16), inset 0 2px 4px rgba(10, 77, 67, 0.1),
+        inset 0 -2px 6px rgba(126, 235, 200, 0.1), 0 1px 3px rgba(10, 77, 67, 0.08);
+    --malachite-rubber-shadow-deep: inset 0 6px 16px rgba(10, 61, 53, 0.18), inset 0 3px 6px rgba(10, 77, 67, 0.12),
+        inset 0 -3px 8px rgba(126, 235, 200, 0.12), 0 1px 2px rgba(10, 77, 67, 0.06);
+    --malachite-focus-highlight: 0 0 0 2px rgba(126, 235, 200, 0.5), 0 0 18px rgba(126, 235, 200, 0.22);
+    --malachite-focus-highlight-sm: 0 0 0 2px rgba(126, 235, 200, 0.42), 0 0 12px rgba(126, 235, 200, 0.16);
+    --malachite-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --malachite-duration: 0.5s;
+    --malachite-transition-leaf: transform var(--malachite-duration) var(--malachite-ease),
+        box-shadow var(--malachite-duration) var(--malachite-ease),
+        border-color 0.4s var(--malachite-ease),
+        background 0.4s var(--malachite-ease),
+        filter 0.4s var(--malachite-ease);
+    --malachite-transition-round: transform var(--malachite-duration) var(--malachite-ease),
+        box-shadow var(--malachite-duration) var(--malachite-ease),
+        border-color 0.4s var(--malachite-ease),
+        background 0.4s var(--malachite-ease);
+    --malachite-transition-radius: border-radius var(--malachite-duration) var(--malachite-ease);
+    --malachite-transition-container: box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    /* legacy aliases */
+    --malachite-radius-deform: var(--malachite-rubber-radius);
+    --malachite-radius-deform-sm: var(--malachite-rubber-radius-sm);
+    --malachite-radius-deform-pill: var(--malachite-rubber-radius-pill);
+    --malachite-radius-deform-lg: var(--malachite-rubber-radius-lg);
+    --malachite-concave: var(--malachite-rubber-shadow);
+    --malachite-concave-deep: var(--malachite-rubber-shadow-deep);
+    --malachite-deform-transform: var(--malachite-rubber-transform);
 }
 
 body.theme-cozy {
