@@ -18,12 +18,16 @@ export class Animations {
 
     initSectionAnimations() {
         const sections = document.querySelectorAll('.cv-section');
+        const useCssMotion = document.body.classList.contains('theme-soft')
+            || document.body.classList.contains('theme-malachite');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    if (!useCssMotion) {
+                        entry.target.style.transform = 'translateY(0)';
+                    }
                 }
             });
         }, CONFIG.OBSERVER_OPTIONS);
@@ -38,9 +42,12 @@ export class Animations {
         const badgeObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting && !this.badgeAnimated) {
-                    const delay = document.body.classList.contains('theme-malachite')
-                        ? 0
-                        : index * CONFIG.BADGE_ANIMATION_DELAY;
+                    if (document.body.classList.contains('theme-soft')
+                        || document.body.classList.contains('theme-malachite')) {
+                        return;
+                    }
+
+                    const delay = index * CONFIG.BADGE_ANIMATION_DELAY;
 
                     setTimeout(() => {
                         entry.target.style.animation = this.getBadgeAnimation(index);
