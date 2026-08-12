@@ -275,6 +275,85 @@
                     </div>
 
                     <div class="project">
+                        <h5 data-ru="CVPlatform — платформа сопровождения студентов до трудоустройства"
+                            data-en="CVPlatform — student career support platform until employment">
+                            CVPlatform — платформа сопровождения студентов до трудоустройства</h5>
+                        <p class="description"
+                            data-ru="Веб-платформа и REST API для управления карьерным треком студента: этапы, документы (CV, легенда), назначение ответственных и синхронизация с Jira и корпоративным Admin API"
+                            data-en="Web platform and REST API for managing a student's career track: stages, documents (CV, legend), assignee allocation, and sync with Jira and the corporate Admin API">
+                            Веб-платформа и REST API для управления карьерным треком студента: этапы, документы (CV,
+                            легенда), назначение ответственных и синхронизация с Jira и корпоративным Admin API</p>
+                        <p><strong data-ru="Роль:" data-en="Role:">Роль:</strong> <span
+                                data-ru="Full Stack-разработчик" data-en="Full Stack Developer">Full Stack-разработчик</span></p>
+                        <div class="responsibilities">
+                            <strong data-ru="Обязанности:" data-en="Responsibilities:">Обязанности:</strong>
+                            <ul>
+                                <li data-ru="Разработка backend-логики платформы: профиль студента, этапы карьерного пути, workflow документов (ИИ → менеджер → ментор)"
+                                    data-en="Backend platform logic: student profile, career-track stages, document workflow (AI → manager → mentor)">
+                                    Разработка backend-логики платформы: профиль студента, этапы карьерного пути,
+                                    workflow документов (ИИ → менеджер → ментор)</li>
+                                <li data-ru="Реализация REST API и серверной части личных кабинетов для студентов, CV-менеджеров, менторов и психологов"
+                                    data-en="REST API and server-side personal cabinets for students, CV managers, mentors, and psychologists">
+                                    Реализация REST API и серверной части личных кабинетов для студентов,
+                                    CV-менеджеров, менторов и психологов</li>
+                                <li data-ru="Вёрстка и доработка UI dashboard’ов, статусов документов, stage track и чатов; интеграция фронта с API (polling статусов, чаты, уведомления)"
+                                    data-en="UI dashboards, document statuses, stage track and chats; frontend–API integration (status polling, chats, notifications)">
+                                    Вёрстка и доработка UI dashboard’ов, статусов документов, stage track и чатов;
+                                    интеграция фронта с API (polling статусов, чаты, уведомления)</li>
+                                <li data-ru="Реализация автоматического назначения ответственных (CV-менеджер, ментор, психолог) по типу обучения, направлению и этапу студента"
+                                    data-en="Automatic assignee selection (CV manager, mentor, psychologist) by learning type, track, and student stage">
+                                    Реализация автоматического назначения ответственных (CV-менеджер, ментор,
+                                    психолог) по типу обучения, направлению и этапу студента</li>
+                                <li data-ru="Интеграция с Jira: привязка карточки студента, синхронизация колонки (этапа), assignee и справочных полей (направление, тип обучения)"
+                                    data-en="Jira integration: student card linking, sync of column (stage), assignee, and reference fields (track, learning type)">
+                                    Интеграция с Jira: привязка карточки студента, синхронизация колонки (этапа),
+                                    assignee и справочных полей (направление, тип обучения)</li>
+                                <li data-ru="Интеграция с Admin API / SSO: каталог направлений, пул сотрудников, specialty студента при входе"
+                                    data-en="Admin API / SSO integration: tracks catalog, staff pool, student specialty on login">
+                                    Интеграция с Admin API / SSO: каталог направлений, пул сотрудников, specialty
+                                    студента при входе</li>
+                                <li data-ru="Настройка прав доступа по ролям и условий разблокировки функционала (чаты, этапы, очереди проверки) в зависимости от роли пользователя"
+                                    data-en="Role-based access and feature unlock rules (chats, stages, review queues) by user role">
+                                    Настройка прав доступа по ролям и условий разблокировки функционала (чаты, этапы,
+                                    очереди проверки) в зависимости от роли пользователя</li>
+                                <li data-ru="Покрытие бизнес-логики автотестами, локальная разработка и отладка на Docker-стенде"
+                                    data-en="Business-logic test coverage; local development and debugging on a Docker stand">
+                                    Покрытие бизнес-логики автотестами, локальная разработка и отладка на Docker-стенде
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <strong data-ru="Достижения:" data-en="Achievements:">Достижения:</strong>
+                            <ul>
+                                <li data-ru="Выстроена сквозная модель «роль ↔ этап ↔ документ ↔ Jira»: платформа задаёт источник правды по этапу, Jira догоняется при расхождении"
+                                    data-en="End-to-end model «role ↔ stage ↔ document ↔ Jira»: the platform is the source of truth for stage; Jira catches up on drift">
+                                    Выстроена сквозная модель «роль ↔ этап ↔ документ ↔ Jira»: платформа задаёт
+                                    источник правды по этапу, Jira догоняется при расхождении</li>
+                                <li data-ru="Реализовано разделение правил назначения на платформе и в Jira (ответственные назначаются на платформе раньше, assignee в Jira — по правилам колонки)"
+                                    data-en="Split assignment rules: platform assignees first, Jira assignee by column rules">
+                                    Реализовано разделение правил назначения на платформе и в Jira (ответственные
+                                    назначаются на платформе раньше, assignee в Jira — по правилам колонки)</li>
+                                <li data-ru="Устранена рассинхронизация при смене ответственных: чаты, уведомления и очереди документов приводятся в согласованное состояние"
+                                    data-en="Fixed desync on assignee change: chats, notifications, and document queues stay consistent">
+                                    Устранена рассинхронизация при смене ответственных: чаты, уведомления и очереди
+                                    документов приводятся в согласованное состояние</li>
+                                <li data-ru="Введён единый карьерный pipeline из 5 этапов с визуализацией прогресса и продвижением по состоянию документов"
+                                    data-en="Unified 5-stage career pipeline with progress visualization and advancement by document state">
+                                    Введён единый карьерный pipeline из 5 этапов с визуализацией прогресса и
+                                    продвижением по состоянию документов</li>
+                                <li data-ru="Доработаны пользовательские сценарии и тексты интерфейса под актуальный workflow (этапы, проверки, подсказки для студентов и сотрудников)"
+                                    data-en="Updated UX flows and UI copy for the current workflow (stages, reviews, tips for students and staff)">
+                                    Доработаны пользовательские сценарии и тексты интерфейса под актуальный workflow
+                                    (этапы, проверки, подсказки для студентов и сотрудников)</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong data-ru="Стек:" data-en="Stack:">Стек:</strong> Django, PostgreSQL, Docker, REST,
+                            Jira, SSO
+                        </div>
+                    </div>
+
+                    <div class="project">
                         <h5 data-ru="Telegram-бот и API уведомлений об оплате"
                             data-en="Telegram Bot and Payment Notification API">
                             Telegram-бот и API уведомлений об оплате</h5>
@@ -631,14 +710,14 @@
                 <div class="challenge-block">
                     <h4 data-ru="Самая технически сложная задача" data-en="Most Technically Challenging Task">Самая
                         технически сложная задача</h4>
-                    <p data-ru="Самой технически сложной задачей для меня стал деплой нескольких независимых проектов на один сервер с использованием единого экземпляра nginx. Необходимо было настроить обратное проксирование, разнести проекты по разным доменам, учесть особенности каждого сервиса и обеспечить их корректную одновременную работу. Дополнительно требовалось настроить SSL-сертификаты и перезапуск сервисов без простоя, что потребовало аккуратного планирования и детального понимания конфигурации nginx."
-                        data-en="The most technically challenging task for me was deploying several independent projects to a single server using a single nginx instance. It was necessary to configure reverse proxying, route projects to different domains, take into account the specifics of each service and ensure their correct simultaneous operation. Additionally, I had to configure SSL certificates and service restarts without downtime, which required careful planning and a deep understanding of nginx configuration.">
-                        Самой технически сложной задачей для меня стал деплой нескольких независимых проектов на один
-                        сервер с использованием единого экземпляра nginx. Необходимо было настроить обратное
-                        проксирование, разнести проекты по разным доменам, учесть особенности каждого сервиса и
-                        обеспечить их корректную одновременную работу. Дополнительно требовалось настроить
-                        SSL-сертификаты и перезапуск сервисов без простоя, что потребовало аккуратного планирования и
-                        детального понимания конфигурации nginx.</p>
+                    <p data-ru="Проектирование и реализация бизнес-логики связки ролей (студент, CV-менеджер, ментор, психолог), этапов карьерного трека и внешних систем (Jira, Admin API). Настроено автоматическое назначение ответственных по типу обучения и направлению, продвижение этапа по workflow документов, синхронизация колонки и assignee в Jira с разделением правил «платформа / Jira». Введён единый сервис назначений, устранена рассинхронизация чатов и уведомлений при смене менеджера."
+                        data-en="Designed and implemented business logic linking roles (student, CV manager, mentor, psychologist), career-track stages, and external systems (Jira, Admin API). Set up automatic assignee selection by learning type and track, stage progression through document workflows, and Jira column/assignee sync with separate «platform / Jira» rules. Introduced a unified assignment service and eliminated chat and notification desynchronization when the manager changes.">
+                        Проектирование и реализация бизнес-логики связки ролей (студент, CV-менеджер, ментор,
+                        психолог), этапов карьерного трека и внешних систем (Jira, Admin API). Настроено
+                        автоматическое назначение ответственных по типу обучения и направлению, продвижение этапа
+                        по workflow документов, синхронизация колонки и assignee в Jira с разделением правил
+                        «платформа / Jira». Введён единый сервис назначений, устранена рассинхронизация чатов и
+                        уведомлений при смене менеджера.</p>
                 </div>
 
                 <div class="challenge-block">
